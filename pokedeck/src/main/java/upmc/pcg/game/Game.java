@@ -17,12 +17,18 @@ package upmc.pcg.game;
 import java.util.*;
 
 public class Game {
+  Player p1;
+  
   public Game() {
+      
   }
   public void initialize(ArrayList<String> players_name) {
-    //....
+    this.p1=new Player(players_name.get(0));
   }
   public void play() {
     //...
+  }
+  public Player get_player(){
+      return this.p1;
   }
 }
