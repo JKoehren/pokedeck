@@ -184,8 +184,8 @@ public class GameUI {
         choice=test_char();
 
         if(choice!='Q'){
-            int index=(int)choice - 1;
-            print("You want to see the card "+deck.get(0));
+            int index=(choice-'0') - 1;
+            print("You want to see the card "+deck.get(index));
         }
     }
   

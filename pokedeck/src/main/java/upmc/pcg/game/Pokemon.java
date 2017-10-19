@@ -5,25 +5,25 @@
  */
 package upmc.pcg.game;
 
-import java.util.HashMap;
-import upmc.pcg.ui.GameUI;
+import java.util.ArrayList;
 
 /**
  *
- * @author Laura
+ * @author licence
  */
-public class Energy extends Card{ 
-   
+public class Pokemon extends Card{
+    private String name;
+    private ArrayList attacks;
+    private int hp;
     
-    public Energy(){
-        this.map_card.put("card_type", "ENERGY");
+    
+    public Pokemon(){
+        this.map_card.put("card_type", "POKEMON");
     }
     
     public String toString(){
         String str;
-        str=("ENERGY : "+this.type);
+        str=("POKEMON : "+this.type);
         return str;
     }
-    
-    
 }
