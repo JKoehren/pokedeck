@@ -15,11 +15,13 @@
 package upmc.pcg.ui;
 
 import java.util.*;
+import upmc.pcg.Card;
 import upmc.pcg.game.Game;
 
-public class GameUI {
+public class GameUI implements TestsUI{
   private final Game game = new Game();
-  private final static Scanner console = new Scanner(System.in);
+  private final CreationCardUI creationCard = new CreationCardUI();
+ 
   private boolean goOn=true;
   
 
@@ -37,9 +39,9 @@ public class GameUI {
 
     private ArrayList<String> ask_players_names() {
         String player_name="";
-        print("What's your name ?");
+        print("What's your name ? (max 20 char)");
 
-        player_name=test_string( );
+        player_name=TestsUI.test_string( 20 );
 
         print("OK "+player_name+". I can feel you'll do great things !");
         ArrayList al=new ArrayList<>();
@@ -51,63 +53,9 @@ public class GameUI {
         print("Hi Trainer ! Welcome to the arena !");
     }
 
-    private String test_string() {
-
-          String str="";
-          String test="";
-
-          while(str.equals("") || str.length()>20){
-              test=this.console.nextLine();
-              if(!test.equals("")){ 
-                  while(test.charAt(0)==' ' && test.length()>1){
-                      test=test.substring(1);
-                  }
-              }
-              if(!test.equals(" ")){
-                 str=test;     
-              }else{
-                  str="";
-                  print("Please enter a REAL name");
-              }
-          }
-          return str;
-    }
-    private static int test_int(int not_a_choice, int min, int max) {
-        int i=not_a_choice;
-        
-        while(i==not_a_choice){
-            if(console.hasNextInt()){
-                i = console.nextInt();
-                if(i>max || i<min){
-                    i=not_a_choice;
-                    print("Please enter a valid value !");
-                }
-            }else{
-                i=not_a_choice; 
-                print("Please enter a valid value !");
-            }
-            console.nextLine();
-        }
-        return i;
-    }
-    public static char test_char(){
-        char res=' ';
-        while(res==' '){
-            String test=console.nextLine();
-            if(test.equals("")){
-                res=' ';
-                print("Please enter a valid value !");
-            }else{
-                test=test.toUpperCase();
-                res=test.charAt(0); 
-            }  
-        }
-        
-        return res;    
-    }
     
   
-    private static void print(String str){
+    protected static void print(String str){
         System.out.println(str);
     }
 
@@ -118,7 +66,7 @@ public class GameUI {
         print("1- Add a card to your deck");
         print("2- See your deck");
         print("3- Leave the game");
-        choice=test_int(-1,1,3);
+        choice=TestsUI.test_int(-1,1,3);
         
         switch(choice){
             case 1:
@@ -142,27 +90,12 @@ public class GameUI {
         print("What kind of card do you want to create :");
         print("1- ENERGY        2- POKEMON        3-TRAINER");
         
-        choice = test_int(-1, 1, type_card_tab.size());
+        choice = TestsUI.test_int(-1, 1, type_card_tab.size());
 
         game.get_player().add_card((String)type_card_tab.get(choice));
         
     }
-    public static String ask_energy_type(String energies[]){
-
-        String str="";
-        int choice;
-       
-        for(int i=0;i<energies.length; i++){
-            str+=(i+1)+" - "+energies[i]+"      ";
-        }
-         print("An ENERGY card ! But wich kind ?");
-         print(str);
-         
-         choice = test_int(-1,1,energies.length)-1;
-         
-         return energies[choice];
-        
-    }
+    
     public static void report_creation_card(String c){
         print("Well done ! You've just created a new card "+c);
     }
@@ -172,20 +105,27 @@ public class GameUI {
     }
 
     private void print_deck() {
-        ArrayList deck=game.get_player().get_deck().get_cards();
+        ArrayList<Card> deck=game.get_player().get_deck().get_cards();
         char choice=' ';
         
         
         print("------------------------------YOUR DECK !-------------------------------");
-        print("Give the cards number to print the entire cards or Q to quit the deck menu");
-        for(int i=0; i<deck.size(); i++){
-            print( (i+1)+" - "+ deck.get(i) );
-        }
-        choice=test_char();
+        if(deck.size()==0){
+            print("Your deck is empty !!");
+        }else{
+            
+            print("Give the cards number to print the entire cards or Q to quit the deck menu");
+            for(int i=0; i<deck.size(); i++){
+                print( (i+1)+" - "+ deck.get(i) );
+            }
+            choice=TestsUI.test_char();
 
-        if(choice!='Q'){
-            int index=(choice-'0') - 1;
-            print("You want to see the card "+deck.get(index));
+            if(choice!='Q'){
+                int index=(choice-'0') - 1;
+                print("You want to see the card "+deck.get(index));
+                Card c=deck.get(index);
+                PrintCardUI.print_card(c.get_map_card());
+            }
         }
     }
   

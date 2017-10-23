@@ -5,6 +5,7 @@
  */
 package upmc.pcg.game;
 
+import upmc.pcg.Deck;
 import java.util.HashMap;
 
 /**
@@ -23,12 +24,13 @@ public class Player {
     }
     
     public void add_card(String card_type){
-       
         this.deck.create_card(card_type);
     }
+    
     public Deck get_deck(){
         return this.deck;
     }
+    
     public String toString(){
         return this.name;
     }

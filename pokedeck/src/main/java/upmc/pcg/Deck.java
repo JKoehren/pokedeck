@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upmc.pcg.game;
+package upmc.pcg;
 
 import java.util.ArrayList;
 
@@ -20,6 +20,12 @@ public class Deck {
         switch(card_type){
             case "ENERGY":
                 c=new Energy();
+                break;
+            case "POKEMON":
+                c=new Pokemon();
+                break;
+            case "TRAINER":
+                c=new Trainer();
                 break;
         }
         cards.add(c);
