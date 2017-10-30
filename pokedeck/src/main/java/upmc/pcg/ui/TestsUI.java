@@ -5,7 +5,6 @@
  */
 package upmc.pcg.ui;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -67,7 +66,6 @@ public interface TestsUI {
             String test=console.nextLine();
             if(test.equals("")){
                 res=' ';
-                print(error);
             }else{
                 test=test.toUpperCase();
                 res=test.charAt(0); 

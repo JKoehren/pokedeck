@@ -10,7 +10,8 @@ package upmc.pcg;
  * @author Laura
  */
 public class Trainer extends Card{
-    public Trainer(){
+    @SuppressWarnings("unchecked")
+	public Trainer(){
         this.map_card.put("card_type", this.type="TRAINER");
         this.name=set_name();
         this.description=set_description();

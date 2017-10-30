@@ -68,12 +68,12 @@ public class PrintCardUI {
         return line;
     }
     private static String add_block(String text){
-        int nb_lines=1, i=1;
+//    	int nb_lines=1; i=1;
         String block="";
-        if(text.length()>31){
-            nb_lines=text.length()/31;
-            if(text.length()%31>0) nb_lines++;
-        }
+//        if(text.length()>31){
+//            nb_lines=text.length()/31;
+//            if(text.length()%31>0) nb_lines++;
+//        }
         while(text.length()> 31){
                 int cesura = 31;
    

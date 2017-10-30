@@ -15,21 +15,23 @@ import upmc.pcg.ui.GameUI;
  * @author Laura
  */
 public class Card {
-    protected HashMap map_card=set_map_card();
+	protected HashMap map_card = set_map_card();
     protected String type, name, energy_type, description;
-    private static HashMap energies=new HashMap(){{
-        put(1, "grass");
-        put(2, "fire");
-        put(3, "water");
-        put(4, "lightning");
-        put(5, "psychic");
-        put(6, "fighting");
-        put(7, "darkness");
-        put(8, "metal");
-        put(9, "fairy");
-        put(10, "dragon");
-        put(11, "colorless");
-    }};
+	private static HashMap<Integer,String> energies = new HashMap<Integer, String>(){
+    	{
+	        put(1, "grass");
+	        put(2, "fire");
+	        put(3, "water");
+	        put(4, "lightning");
+	        put(5, "psychic");
+	        put(6, "fighting");
+	        put(7, "darkness");
+	        put(8, "metal");
+	        put(9, "fairy");
+	        put(10, "dragon");
+	        put(11, "colorless");
+    	}
+    };
 
     protected String set_energy(){
         String energy=CreationCardUI.ask_energy_type(energies, this.type);
@@ -101,8 +103,8 @@ public class Card {
     protected void report(){
         GameUI.report_creation_card(this.toString());
     }
-    private HashMap set_map_card(){
-        HashMap hm=new HashMap();
+    private HashMap<String, String> set_map_card(){
+        HashMap<String, String> hm = new HashMap<String, String>();
         hm.put("card_type", "");
         hm.put("energy_type", "");
         hm.put("name", "");
@@ -120,8 +122,16 @@ public class Card {
         return hm;
     }
     
+    public HashMap<String, String> set_map_card(HashMap<String, String> up_map_card){
+    	return up_map_card;
+    }
+    
     public HashMap get_map_card(){
         return this.map_card;
+    }
+    
+    public String get_type_card() {
+    	return (String) this.map_card.get("card_type");
     }
     
 }

@@ -13,7 +13,9 @@ import java.util.HashMap;
  * @author licence
  */
 public class Pokemon extends Card{
-    private final ArrayList attacks;
+    
+	
+	private final ArrayList attacks;
     private int hp;
     private final String weakness;
     private final String resistance;

@@ -6,7 +6,6 @@
 package upmc.pcg.game;
 
 import upmc.pcg.Deck;
-import java.util.HashMap;
 
 /**
  *
@@ -14,6 +13,7 @@ import java.util.HashMap;
  */
 public class Player {
     private String name;
+    private String password;
     private Deck deck=new Deck();
     
     public Player(){
@@ -33,5 +33,13 @@ public class Player {
     
     public String toString(){
         return this.name;
+    }
+    
+    public void set_password(String pwd) {
+    	this.password = pwd;
+    }
+    
+    protected String get_password() {
+    	return password;
     }
 }

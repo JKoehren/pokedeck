@@ -16,7 +16,7 @@ public class Attack {
     private int strenght;
     private ArrayList<String> energy_needed;
     
-    public Attack(String name, int strenght, ArrayList energy_needed){
+    public Attack(String name, int strenght, ArrayList<String> energy_needed){
         this.name=name;
         this.strenght=strenght;
         this.energy_needed=energy_needed;
