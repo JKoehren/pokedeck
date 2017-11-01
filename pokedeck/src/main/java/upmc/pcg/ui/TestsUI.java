@@ -60,7 +60,7 @@ public interface TestsUI {
         }
         return i;
     }
-    public static char test_char(){
+    public static char test_char(char[] authorized_values){
         char res=' ';
         while(res==' '){
             String test=console.nextLine();
@@ -68,8 +68,17 @@ public interface TestsUI {
                 res=' ';
             }else{
                 test=test.toUpperCase();
-                res=test.charAt(0); 
-            }  
+                for(int i=0 ; i< authorized_values.length ; i++){
+                    if( test.charAt(0) == authorized_values[i]){
+                        res=test.charAt(0); 
+                        break;
+                    }
+                }
+                
+            }
+            if(res == ' '){
+                print(error);
+            }
         }
         
         return res;    

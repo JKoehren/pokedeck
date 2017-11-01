@@ -24,6 +24,13 @@ public class Energy extends Card{
         str=("ENERGY : "+this.energy_type);
         return str;
     }
+    public void set_argument(String argument) {
+        switch (argument){
+            case "energy" :
+                this.energy_type=set_energy();
+                break;
+        }
+    }
     
     
 }

@@ -121,9 +121,9 @@ public class CreationCardUI implements TestsUI{
         char add; // Wordplay !
         boolean rhapsodie = true; //Other pun 
         print("Do you want to add a major attack? Y/N");
-        while( ( (add = TestsUI.test_char() ) != 'Y' ) && ( add !='N' ) ) {
-            print("Please enter a valid value !");
-        }
+        char[] ok = {'Y', 'N'};
+        add=TestsUI.test_char(ok);
+       
         if(add=='N') {
             rhapsodie = false;
         }

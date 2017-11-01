@@ -15,6 +15,7 @@
 package upmc.pcg.ui;
 
 import java.util.*;
+import java.util.Enumeration;
 import upmc.pcg.Card;
 import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
@@ -22,28 +23,27 @@ import upmc.pcg.game.Serializer;
 
 public class GameUI extends Serializer implements TestsUI {
 	
-	private final Game game = new Game();
-//	private final CreationCardUI creationCard = new CreationCardUI();
- 
-	private boolean goOn = true;
+    private final Game game = new Game();
+
+    private boolean goOn = true;
   
 
-	public void start() {
-	    char login = print_welcome_msg();
-	    
-	    ArrayList<String> names = ask_players_names();
-	    game.initialize(names);
-	    
-	    game.get_player().set_password(ask_password(login));
-	    
-	    while(goOn){
-	        menu();
-	    }
-	    game.play();
-	    print_goodbye_msg();
-	}
+    public void start() {
+        char login = print_welcome_msg();
 
-	private ArrayList<String> ask_players_names() {
+        ArrayList<String> names = ask_players_names();
+        game.initialize(names);
+
+        game.get_player().set_password(ask_password(login));
+
+        while(goOn){
+            menu();
+        }
+        game.play();
+        print_goodbye_msg();
+    }
+
+    private ArrayList<String> ask_players_names() {
         String player_name = "";
         print("What's your name ? (max 20 char)");
 
@@ -61,10 +61,8 @@ public class GameUI extends Serializer implements TestsUI {
     private char print_welcome_msg() {
         print("Hi Trainer ! Welcome to the arena !");
         print("Are you already registered? Y/N");
-        char choice;
-        while( ( (choice = TestsUI.test_char() ) != 'Y' ) && ( choice !='N' ) ) {
-            print("Please enter a valid value !");
-        }
+        char[] ok = {'Y', 'N'};
+        char choice = TestsUI.test_char(ok);
         return choice;
     }
     
@@ -145,7 +143,7 @@ public class GameUI extends Serializer implements TestsUI {
     @SuppressWarnings("unchecked")
 	private void print_deck() {
         ArrayList<Card> deck = game.get_player().get_deck().get_cards();
-        char choice = ' ';
+        String choice = "";
         
         
         print("------------------------------YOUR DECK !-------------------------------");
@@ -157,22 +155,40 @@ public class GameUI extends Serializer implements TestsUI {
             for(int i = 0, n = deck.size() ; i < n ; i++){
                 print( (i+1) + " - " + deck.get(i) );
             }
-            choice=TestsUI.test_char();
-
-            if(choice != 'Q'){
-            	int index = (choice - '0') - 1;
+            
+            int index=-1;
+            do{
+                choice=TestsUI.test_string(2);
+                if(choice.charAt(0) != 'Q'){
+                    try{
+                       index = Integer.parseInt(choice); 
+                       if(index > deck.size() || index < 1){
+                            index=-1;
+                            print("Please enter a good value");
+                       }
+                    }catch(NumberFormatException e){ 
+                        index=-1;
+                        print("Please enter a good value");
+                    }
+                }else{
+                    index=-2;
+                }    
+            }while( index == -1 );
+            
+            if(index!=-2){
+                index--;
                 print("You want to see the card "+deck.get(index));
                 Card c = deck.get(index);
                 HashMap<String, String> get_map_card = c.get_map_card();
-        		PrintCardUI.print_card(get_map_card);
-            	menu_card(index, deck);
-            	return;
+                PrintCardUI.print_card(get_map_card);
+                menu_card(index, deck);
             }
         }
     }
     
     private void menu_card(int index, ArrayList<Card> deck) {
         
+        print("");
         print("Do you want to :");
         print("1- Remove the card");
         print("2- Modify the card");
@@ -180,14 +196,52 @@ public class GameUI extends Serializer implements TestsUI {
         
         int choice = TestsUI.test_int(-1, 1, 3);
         
-        if (choice == 2) {
-        	game.get_player().add_card( deck.get(index).get_type_card() );
+        switch(choice){
+            case 1:
+                print("Are you sure you want to removed "+ deck.get(index) +"? (Y/N)");
+                char[] ok = {'Y', 'N'};
+                char erase=TestsUI.test_char(ok);
+                if( erase == 'Y'){
+                    print(deck.get(index)+"...is removed");
+                    deck.remove(index);
+                }else{
+                    print("Removing removal ...");
+                }
+                break;
+            case 2:
+                menu_card_modification(deck.get(index));
+                break;
+            default:
+                break;
         }
-        if (choice < 3) {
-        	deck.remove(index);
+
+    }
+
+    private void menu_card_modification(Card c) {
+        HashMap c_map = c.get_map_card();
+        HashMap<Integer, String> c_arguments = new HashMap();
+        Set<String> c_keys = c_map.keySet();
+        Iterator<String> it = c_keys.iterator();
+        int i=1;
+        
+        print("What do you wanna change?");
+ 
+        while(it.hasNext()){
+            String next=it.next();
+            if( !c_map.get( next ).equals("") && !next.equals("card_type") && (!next.contains("attack") || next.equals("attack1_name"))){
+                if( next.equals("energy_type")) next = "energy";
+                if( next.equals("attack1_name")) next = "attacks";
+                if( next.equals("retreat_cost")) next = "retreat";
+                
+                print( i +" "+ next );
+                c_arguments.put( i, next );
+                i++;
+            }
         }
         
-        print_deck();
-        return;
+        int choice =TestsUI.test_int(-1, 1, i);
+
+        c.set_argument(c_arguments.get(choice));
+
     }
 }

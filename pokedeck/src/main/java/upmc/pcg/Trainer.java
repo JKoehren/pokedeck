@@ -20,4 +20,14 @@ public class Trainer extends Card{
     public String toString(){
         return "TRAINER : "+this.name;
     }
+    public void set_argument(String argument) {
+        switch (argument){
+            case "name" :
+                this.name=set_name();
+                break;
+            case "description" :
+                this.description = set_description();
+                break; 
+        }
+    }
 }

@@ -15,11 +15,11 @@ import java.util.HashMap;
 public class Pokemon extends Card{
     
 	
-	private final ArrayList attacks;
+    private ArrayList attacks;
     private int hp;
-    private final String weakness;
-    private final String resistance;
-    private final HashMap retreat_cost;
+    private String weakness;
+    private String resistance;
+    private HashMap retreat_cost;
     
     public Pokemon(){
         this.map_card.put("card_type", this.type="POKEMON");
@@ -39,5 +39,33 @@ public class Pokemon extends Card{
         String str;
         str=("POKEMON : "+this.name);
         return str;
+    }
+    public void set_argument(String argument) {
+        switch (argument){
+            case "energy" :
+                this.energy_type=set_energy();
+                break;
+            case "name" :
+                this.name=set_name();
+                break;
+            case "description" :
+                this.description = set_description();
+                break;
+            case "HP" :
+                this.hp=set_hp();
+                break;
+            case "attacks" :
+                this.attacks=set_attacks();
+                break;
+            case "weakness" :
+                this.weakness=set_weakness();
+                break;
+            case "resistance" :
+                this.resistance=set_resistance();
+                break;
+            case "retreat" :
+                this.retreat_cost=set_retreat();
+                break;
+        }
     }
 }

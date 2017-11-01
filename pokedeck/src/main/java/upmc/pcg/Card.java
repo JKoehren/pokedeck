@@ -15,7 +15,7 @@ import upmc.pcg.ui.GameUI;
  * @author Laura
  */
 public class Card {
-	protected HashMap map_card = set_map_card();
+    protected HashMap map_card = set_map_card();
     protected String type, name, energy_type, description;
 	private static HashMap<Integer,String> energies = new HashMap<Integer, String>(){
     	{
@@ -133,5 +133,7 @@ public class Card {
     public String get_type_card() {
     	return (String) this.map_card.get("card_type");
     }
-    
+    public void set_argument(String argument) {
+
+    }
 }
