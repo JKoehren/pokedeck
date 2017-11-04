@@ -122,10 +122,6 @@ public class Card {
         return hm;
     }
     
-    public HashMap<String, String> set_map_card(HashMap<String, String> up_map_card){
-    	return up_map_card;
-    }
-    
     public HashMap get_map_card(){
         return this.map_card;
     }

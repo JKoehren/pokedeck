@@ -35,13 +35,14 @@ public class Deck {
         return this.cards;
     }
     
-    public void set_deck(ArrayList<HashMap<String, String>> deckIn) {
-    	for (int i = 0, n = deckIn.size() ; i < n ; i++ ) {
-    		Card c = new Card();
-    		c.set_map_card(deckIn.get(i));
-    		this.cards.add(c);
-    	};
-    	
-    }
+//	Deck load no working for the moment    
+//    public void set_deck(ArrayList<HashMap<String, String>> deckIn) {
+//    	for (int i = 0, n = deckIn.size() ; i < n ; i++ ) {
+//    		Card c = new Card();
+//    		c.set_map_card(deckIn.get(i));
+//    		this.cards.add(c);
+//    	};
+//    	
+//    }
             
 }
