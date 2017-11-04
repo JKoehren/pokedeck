@@ -94,6 +94,7 @@ public class GameUI extends Serializer implements TestsUI {
     }
 
     private void menu() {
+    	ArrayList<Card> deck = game.get_player().get_deck().get_cards();
         int choice;
         
         print("Do you want to :");
@@ -107,7 +108,7 @@ public class GameUI extends Serializer implements TestsUI {
                 ask_type_card();
                 break;
             case 2:
-                print_deck();
+                print_deck(deck);
                 break;
             case 3:
                 goOn = false;
@@ -141,48 +142,103 @@ public class GameUI extends Serializer implements TestsUI {
     }
 
     @SuppressWarnings("unchecked")
-	private void print_deck() {
-        ArrayList<Card> deck = game.get_player().get_deck().get_cards();
-        String choice = "";
-        
+	private void print_deck(ArrayList<Card> deck) {
         
         print("------------------------------YOUR DECK !-------------------------------");
         if(deck.size() == 0){
             print("Your deck is empty !!");
             
-        }else{  
-            print("Give the cards number to print the entire cards or Q to quit the deck menu");
+        }else{ 
+        	print("Give the cards number to print the entire cards or :");
+            print("Q to quit the deck menu");
+            print("S to select by name");
+            print("T to sort by type");
+            print("");
             for(int i = 0, n = deck.size() ; i < n ; i++){
                 print( (i+1) + " - " + deck.get(i) );
             }
-            
-            int index=-1;
-            do{
-                choice=TestsUI.test_string(2);
-                if(choice.charAt(0) != 'Q'){
-                    try{
-                       index = Integer.parseInt(choice); 
-                       if(index > deck.size() || index < 1){
-                            index=-1;
-                            print("Please enter a good value");
-                       }
-                    }catch(NumberFormatException e){ 
+            print_card(deck);
+        }
+    }
+    
+    private void print_card(ArrayList<Card> deck) {
+    	ArrayList<Card> search = new ArrayList<Card>();
+    	String choice = "";
+        int index=-1;
+        do{
+            choice=TestsUI.test_string(2);
+            if (choice.charAt(0) == 'S') {
+            	index=-3;
+            }else if(choice.charAt(0) == 'T') {
+            	index=-4;
+            }else if (choice.charAt(0) != 'Q'){
+                try{
+                   index = Integer.parseInt(choice); 
+                   if(index > deck.size() || index < 1){
                         index=-1;
                         print("Please enter a good value");
-                    }
-                }else{
-                    index=-2;
-                }    
-            }while( index == -1 );
-            
-            if(index!=-2){
-                index--;
-                print("You want to see the card "+deck.get(index));
-                Card c = deck.get(index);
-                HashMap<String, String> get_map_card = c.get_map_card();
-                PrintCardUI.print_card(get_map_card);
-                menu_card(index, deck);
+                   }
+                }catch(NumberFormatException e){ 
+                    index=-1;
+                    print("Please enter a good value");
+                }
+            }else{
+                index=-2;
+            }    
+        }while( index == -1 );
+        
+        if(index == -3) {
+        	
+        	print("Which one do you want to see? (Write his name, max 15 char)");
+        	choice=TestsUI.test_string(15);
+        	for(int i = 0, n = deck.size() ; i < n ; i++){
+                String cardList = deck.get(i) +"";
+                String[] cardName = cardList.split(":");
+                if (cardName[1].toLowerCase().indexOf(choice.toLowerCase()) > -1) {
+                	index = -2;
+                	search.add(deck.get(i));
+                }
             }
+        	if (index == -3) {
+        		print("No card found with this name!");
+        		index++;
+        	}else{
+        		print_deck(search);
+        	}
+        }
+        
+        if (index == -4) {
+        	print("What kind of cards should we display?");
+        	print("1 : Energy");
+        	print("2 : Pokemon");
+        	print("3 : Trainer");
+        	int choiceType=TestsUI.test_int(-1, 1, 3);
+        	choiceType--;
+        	String[] types = {"energy","pokemon","trainer"};
+        	for(int i = 0, n = deck.size() ; i < n ; i++){
+        		String cardList = deck.get(i) +"";
+                String[] cardName = cardList.split(":");
+                if (cardName[0].toLowerCase().indexOf(types[choiceType]) > -1) {
+                	search.add(deck.get(i));
+                	index = -2;
+                }
+        	}
+        	if (index == -4) {
+        		print("No card found with this type!");
+        		index++;
+        		index++;
+        	}else{
+        		print_deck(search);
+        	}
+        }
+        
+        if(index!=-2){
+            index--;
+            print("You want to see the card "+deck.get(index));
+            Card c = deck.get(index);
+            HashMap<String, String> get_map_card = c.get_map_card();
+            PrintCardUI.print_card(get_map_card);
+            menu_card(index, deck);
         }
     }
     
@@ -212,6 +268,7 @@ public class GameUI extends Serializer implements TestsUI {
                 menu_card_modification(deck.get(index));
                 break;
             default:
+            	print_deck(deck);
                 break;
         }
 
