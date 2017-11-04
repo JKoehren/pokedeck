@@ -13,17 +13,19 @@ public class Energy extends Card{
    
     
     @SuppressWarnings("unchecked")
-	public Energy(){
+    public Energy(){
         this.map_card.put("card_type", this.type="ENERGY");
         this.energy_type=set_energy();
         report();
     }
     
+    @Override
     public String toString(){
         String str;
         str=("ENERGY : "+this.energy_type);
         return str;
     }
+    @Override
     public void set_argument(String argument) {
         switch (argument){
             case "energy" :

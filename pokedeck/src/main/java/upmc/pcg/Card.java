@@ -17,7 +17,7 @@ import upmc.pcg.ui.GameUI;
 public class Card {
     protected HashMap map_card = set_map_card();
     protected String type, name, energy_type, description;
-	private static HashMap<Integer,String> energies = new HashMap<Integer, String>(){
+    private static HashMap<Integer,String> energies = new HashMap<Integer, String>(){
     	{
 	        put(1, "grass");
 	        put(2, "fire");
@@ -45,7 +45,7 @@ public class Card {
         return name;
     }
     
-    protected ArrayList set_attacks(){
+    protected ArrayList<Attack> set_attacks(){
         ArrayList<Attack> attacks=new ArrayList();
         boolean add_attack=true;
         int i=1;

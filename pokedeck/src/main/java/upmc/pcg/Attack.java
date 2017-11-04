@@ -28,6 +28,7 @@ public class Attack {
         return ""+this.strenght;
     }
     public String get_energy_needed(){
+        System.out.println("On en a besoin");
         String str="";
         for(int i=0; i<this.energy_needed.size();i++){
             str += this.energy_needed.get(i)+" ";
