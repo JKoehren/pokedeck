@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="92cm" height="63cm" viewBox="-236 -191 1828 1249" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="-234.968" y="-164.685" width="863.813" height="718.123"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-234.968" y="-164.685" width="863.813" height="718.123"/>
+    <rect style="fill: #ffffff" x="-234.968" y="-184.685" width="88.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-234.968" y="-184.685" width="88.7" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-232.968" y="-169.685">upmc.pgc.ui</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="229.474" y="63.6022" width="379.6" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="229.474" y="63.6022" width="379.6" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="419.274" y="82.6022">GameUI</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:oblique;font-weight:normal" x="419.274" y="98.1022">Handle menus, player signing in and</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:oblique;font-weight:normal" x="419.274" y="112.102">out, print the deck. </text>
+    <rect style="fill: #ffffff" x="229.474" y="119.602" width="379.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="229.474" y="119.602" width="379.6" height="8"/>
+    <rect style="fill: #ffffff" x="229.474" y="127.602" width="379.6" height="373"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="229.474" y="127.602" width="379.6" height="373"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="141.602">+start(): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="156.102">Launch the game</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="178.602">-ask_players_names(): ArrayList&lt;String&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="194.602">-print_welcome_msg(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="210.602">-ask_password(login:char): String</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="225.102">Doesnt work for now (but soon)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="247.602">#print(str:String): void const</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="262.102">just an alias for System.out.print</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="284.602">-menu(): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="299.102">Principal menu for deck building</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="321.602">-ask_type_card(): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="336.102">Ask wich kind of card do you want to</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="350.102">create</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="372.602">+report_creation_card(): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="387.102">Report card creation</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="409.602">-print_goodbye_msg(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="425.602">-print_deck(deck:ArrayList&lt;Card&gt;): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="441.602">-menu_card(index:int,deck:ArrayList&lt;Card&gt;): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:oblique;font-weight:normal" x="232.474" y="456.102">menu when printing a card</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="478.602">-menu_card_modification(c:Card): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="232.474" y="494.602">-print_card(deck:ArrayList&lt;Card&gt;): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-209.756" y="146.126" width="371.9" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-209.756" y="146.126" width="371.9" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-23.806" y="165.126">CreationCardUI</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-23.806" y="180.626">Create cards by asking questions to the</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-23.806" y="194.626">player</text>
+    <rect style="fill: #ffffff" x="-209.756" y="202.126" width="371.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-209.756" y="202.126" width="371.9" height="8"/>
+    <rect style="fill: #ffffff" x="-209.756" y="210.126" width="371.9" height="276"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-209.756" y="210.126" width="371.9" height="276"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="224.126">+ask_energy_type(energy_type:HashMap&lt;Integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="240.126">                  String&gt;,type:String): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="256.126">+ask_name(type:String): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="272.126">+ask_attack_name(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="288.126">+ask_attack_strenght(): int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="304.126">+ask_attack_energy(energy_type:HashMap&lt;Integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="320.126">                    String&gt;): ArrayList&lt;String&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="336.126">-ask_if_add_attack(): boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="352.126">+ask_hp(): int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="368.126">+ask_weakness(energy_type:HashMap&lt;Integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="384.126">               String&gt;): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="400.126">+ask_retreat(energy_type:HashMap&lt;Integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="416.126">              String&gt;): HashMap</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="432.126">+ask_description(type:String): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="448.126">+print_hashMap(to_print:HashMap&lt;Integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="464.126">                String&gt;): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-206.756" y="480.126">+print(str:String): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="223.372" y="-127.845" width="341.1" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="223.372" y="-127.845" width="341.1" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="393.922" y="-108.845">PrintCardUI</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="393.922" y="-93.3454">Print a graphical representation of the</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="393.922" y="-79.3454">card selected</text>
+    <rect style="fill: #ffffff" x="223.372" y="-71.8454" width="341.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="223.372" y="-71.8454" width="341.1" height="8"/>
+    <rect style="fill: #ffffff" x="223.372" y="-63.8454" width="341.1" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="223.372" y="-63.8454" width="341.1" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="226.372" y="-49.8454">+print_card(c:HashMap&lt;String,String&gt;): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="226.372" y="-33.8454">+limit_area(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="226.372" y="-17.8454">+add_line(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="226.372" y="-1.8454">+add_block(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="226.372" y="14.1546">+add_ascii(): String</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-213.58" y="-147.867" width="379.6" height="42"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-213.58" y="-147.867" width="379.6" height="42"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-23.78" y="-128.867">"TestsUI"</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-23.78" y="-113.367">test shell entries</text>
+    <rect style="fill: #ffffff" x="-213.58" y="-105.867" width="379.6" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-213.58" y="-105.867" width="379.6" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="-91.8672">+error: String = Please enter a valid value</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="-75.8672">+too_long: String = It's too long ! Max is :</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="-59.8672">+console: Scanner</text>
+    <rect style="fill: #ffffff" x="-213.58" y="-53.8672" width="379.6" height="89"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-213.58" y="-53.8672" width="379.6" height="89"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="-39.8672">+test_string(max_length:int): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="-23.8672">+test_int(not_a_choice:int,min:int,max:int): int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="-7.8672">+test_char(authorized_values:char[]): char</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-210.58" y="8.1328">+print(str:String): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210.58" y="22.6328"></text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="650.562" y="-169.73" width="817.349" height="363.715"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="650.562" y="-169.73" width="817.349" height="363.715"/>
+    <rect style="fill: #ffffff" x="650.562" y="-189.73" width="104.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="650.562" y="-189.73" width="104.1" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="652.562" y="-174.73">upmc.pgc.game</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="656.528" y="-169.73" width="387.3" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="656.528" y="-169.73" width="387.3" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="850.178" y="-150.73">Game</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="850.178" y="-135.23">This is not over, it will launch the</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="850.178" y="-121.23">real fighting game if we go that far</text>
+    <rect style="fill: #ffffff" x="656.528" y="-113.73" width="387.3" height="55"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="656.528" y="-113.73" width="387.3" height="55"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="659.528" y="-99.7304">+p1: Player</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="659.528" y="-85.2304">For now, it accept only one player, but</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="659.528" y="-71.2304">we add a second to fight</text>
+    <rect style="fill: #ffffff" x="656.528" y="-58.7304" width="387.3" height="73"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="656.528" y="-58.7304" width="387.3" height="73"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="659.528" y="-44.7304">+initialize(players_name:ArrayList&lt;String&gt;): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="659.528" y="-28.7304">+play(): void</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="659.528" y="-14.2304">for now, it does nothing</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="659.528" y="8.2696">+get_player(): Player</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="979.954" y="29.9844" width="217.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="979.954" y="29.9844" width="217.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1088.9" y="48.9844">Player</text>
+    <rect style="fill: #ffffff" x="979.954" y="57.9844" width="217.9" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="979.954" y="57.9844" width="217.9" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="71.9844">-name: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="87.9844">-password: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="103.984">-deck: Deck</text>
+    <rect style="fill: #ffffff" x="979.954" y="109.984" width="217.9" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="979.954" y="109.984" width="217.9" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="123.984">+add_card(card_type:String)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="139.984">+get_deck(): Deck</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="155.984">+toString(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="171.984">+set_password()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="982.954" y="187.984">#get_password()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1114.72" y="-137.171" width="302.6" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1114.72" y="-137.171" width="302.6" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1266.02" y="-118.171">Serializer</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1266.02" y="-102.671">this class can save a deck and will be</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1266.02" y="-88.6706">able to upload decks soon</text>
+    <rect style="fill: #ffffff" x="1114.72" y="-81.1706" width="302.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1114.72" y="-81.1706" width="302.6" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1117.72" y="-67.1706">+mapper: ObjectMapper</text>
+    <rect style="fill: #ffffff" x="1114.72" y="-61.1706" width="302.6" height="57"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1114.72" y="-61.1706" width="302.6" height="57"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1117.72" y="-47.1706">+save_deck(player:Player)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1117.72" y="-31.1706">+upload_deck(player:Player): ArrayList</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1117.72" y="-16.6706">Doesnt work yet (but soon)</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1088.9,28.9793 1088.9,-77.7304 1070.01,-77.7304 "/>
+    <polygon style="fill: #000000" points="1044.83,-77.7304 1058.83,-82.5304 1072.83,-77.7304 1058.83,-72.9304 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1044.83,-77.7304 1058.83,-82.5304 1072.83,-77.7304 1058.83,-72.9304 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1066.87" y="-80.7304"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1092.9" y="24.9793"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1076.83" y="-80.7304"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="1198.86,111.984 1446.32,111.984 1446.32,-51.1706 1424.03,-51.1706 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1436.67,-56.1706 1420.67,-51.1706 1436.67,-46.1706 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1448.32" y="27.4069">use</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="651.856" y="293.938" width="939.007" height="762.944"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="651.856" y="293.938" width="939.007" height="762.944"/>
+    <rect style="fill: #ffffff" x="651.856" y="273.938" width="65.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="651.856" y="273.938" width="65.6" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="653.856" y="288.938">upmc.pgc</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="725.576" y="317.112" width="96.7" height="42"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="725.576" y="317.112" width="96.7" height="42"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="773.926" y="336.112">Pokedeck</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="773.926" y="351.612">Main</text>
+    <rect style="fill: #ffffff" x="725.576" y="359.112" width="96.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="725.576" y="359.112" width="96.7" height="8"/>
+    <rect style="fill: #ffffff" x="725.576" y="367.112" width="96.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="725.576" y="367.112" width="96.7" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="728.576" y="381.112">+main()</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="724.57,352.112 671.325,352.112 671.325,282.102 616.785,282.102 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="629.432,277.102 613.432,282.102 629.432,287.102 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="673.325" y="314.107">launch</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1160.79" y="338.87" width="333.4" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1160.79" y="338.87" width="333.4" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1327.49" y="357.87">Deck</text>
+    <rect style="fill: #ffffff" x="1160.79" y="366.87" width="333.4" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1160.79" y="366.87" width="333.4" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1163.79" y="380.87">#cards: ArrayList&lt;Card&gt;</text>
+    <rect style="fill: #ffffff" x="1160.79" y="386.87" width="333.4" height="89"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1160.79" y="386.87" width="333.4" height="89"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1163.79" y="400.87">+create_card(card_type:String)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1163.79" y="416.87">+get_cards(): ArrayList&lt;Card&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1163.79" y="432.87">+set_deck(deckIn:ArrayList&lt;HashMap&lt;String,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1163.79" y="448.87">          String&gt;&gt;)</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1163.79" y="463.37">Doesnt work yet (but sool)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="720.628" y="413.148" width="318" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="720.628" y="413.148" width="318" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="879.628" y="432.148">Card</text>
+    <rect style="fill: #ffffff" x="720.628" y="441.148" width="318" height="142"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="720.628" y="441.148" width="318" height="142"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="455.148">#map_card: HashMap</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="723.628" y="469.648">String representation of cards</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="492.148">#type: String</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="723.628" y="506.648">Energy, Pokemon or Trainer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="529.148">#description: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="545.148">#name: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="561.148">#energy_type: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="577.148">-energies: HashMap&lt;Integer,String&gt;</text>
+    <rect style="fill: #ffffff" x="720.628" y="583.148" width="318" height="180"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="720.628" y="583.148" width="318" height="180"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="597.148">#set_energy(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="613.148">#set_name(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="629.148">#set_attacks(): ArrayList&lt;Attack&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="645.148">#set_hp(): int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="661.148">#set_weakness(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="677.148">#set_resistance(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="693.148">#set_retreat(): HashMap</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="709.148">#report(): HashMap&lt;String,String&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="725.148">+set_map_card(): HashMap&lt;String,String&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="741.148">+get_map_card(): HashMap&lt;String, String&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="723.628" y="757.148">+set_argument(argument:String)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="687.616" y="878.066" width="241" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="687.616" y="878.066" width="241" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="808.116" y="897.066">Energy</text>
+    <rect style="fill: #ffffff" x="687.616" y="906.066" width="241" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="687.616" y="906.066" width="241" height="8"/>
+    <rect style="fill: #ffffff" x="687.616" y="914.066" width="241" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="687.616" y="914.066" width="241" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690.616" y="928.066">+toString(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690.616" y="944.066">+set_argument(argument:String)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1267.16" y="850.556" width="241" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1267.16" y="850.556" width="241" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1387.66" y="869.556">Pokemon</text>
+    <rect style="fill: #ffffff" x="1267.16" y="878.556" width="241" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1267.16" y="878.556" width="241" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="892.556">-attacks: ArrayList&lt;Attacks&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="908.556">-hp: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="924.556">-weakness: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="940.556">-resistance: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="956.556">-retreat_cost: HashMap</text>
+    <rect style="fill: #ffffff" x="1267.16" y="962.556" width="241" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1267.16" y="962.556" width="241" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="976.556">+toString(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1270.16" y="992.556">+set_argument(argument:String)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="973.72" y="879.9" width="241" height="98"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="973.72" y="879.9" width="241" height="98"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1094.22" y="898.9">Trainer</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1094.22" y="914.4">If we create the fighting game, this</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1094.22" y="928.4">should be a mother class for with</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1094.22" y="942.4">extended classes for every kind of</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1094.22" y="956.4">trainers (every one has his own</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1094.22" y="970.4">methods)</text>
+    <rect style="fill: #ffffff" x="973.72" y="977.9" width="241" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="973.72" y="977.9" width="241" height="8"/>
+    <rect style="fill: #ffffff" x="973.72" y="985.9" width="241" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="973.72" y="985.9" width="241" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="976.72" y="999.9">+toString(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="976.72" y="1015.9">+set_argument(argument:String)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1175.46" y="549.78" width="225.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1175.46" y="549.78" width="225.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1288.26" y="568.78">Attack</text>
+    <rect style="fill: #ffffff" x="1175.46" y="577.78" width="225.6" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1175.46" y="577.78" width="225.6" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1178.46" y="591.78">-name: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1178.46" y="607.78">-strenght: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1178.46" y="623.78">-energy_needed</text>
+    <rect style="fill: #ffffff" x="1175.46" y="629.78" width="225.6" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1175.46" y="629.78" width="225.6" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1178.46" y="643.78">+get_name(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1178.46" y="659.78">+get_strenght(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1178.46" y="675.78">+get_energy_needed(): String</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="1387.66,849.547 1387.66,770.168 1288.26,770.168 1288.26,689.493 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1293.26,702.141 1288.26,686.141 1283.26,702.141 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="879.628,782.389 879.628,814.85 1387.66,814.85 1387.66,849.547 "/>
+    <polygon style="fill: #ffffff" points="887.628,782.389 879.628,766.389 871.628,782.389 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="887.628,782.389 879.628,766.389 871.628,782.389 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="879.628,782.389 879.628,828.605 808.116,828.605 808.116,877.057 "/>
+    <polygon style="fill: #ffffff" points="887.628,782.389 879.628,766.389 871.628,782.389 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="887.628,782.389 879.628,766.389 871.628,782.389 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="879.628,782.389 879.628,829.522 1094.22,829.522 1094.22,878.891 "/>
+    <polygon style="fill: #ffffff" points="887.628,782.389 879.628,766.389 871.628,782.389 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="887.628,782.389 879.628,766.389 871.628,782.389 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1039.59,588.148 1092.01,588.148 1092.01,407.37 1134.61,407.37 "/>
+    <polygon style="fill: #000000" points="1159.79,407.37 1145.79,412.17 1131.79,407.37 1145.79,402.57 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1159.79,407.37 1145.79,412.17 1131.79,407.37 1145.79,402.57 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1094.01" y="494.759"></text>
+    <polygon style="fill: #000000" points="1090.01,494.759 1090.01,486.759 1082.01,490.759 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1043.59" y="585.148">n:x</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1127.79" y="404.37">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1327.49,337.862 1327.49,273.425 1088.9,273.425 1088.9,220.161 "/>
+    <polygon style="fill: #000000" points="1088.9,194.989 1093.7,208.989 1088.9,222.989 1084.1,208.989 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1088.9,194.989 1093.7,208.989 1088.9,222.989 1084.1,208.989 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1208.2" y="270.425"></text>
+    <polygon style="fill: #000000" points="1204.2,270.425 1204.2,262.425 1196.2,266.425 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1331.49" y="333.862">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1099.9" y="206.989"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="720.628,737.148 206.194,737.148 206.194,316.126 169.844,316.126 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="182.492,311.126 166.492,316.126 182.492,321.126 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="208.194" y="523.637">use</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="185.257,-56.3672 204.36,-56.3672 204.36,168.308 226.368,168.308 "/>
+    <polygon style="fill: #ffffff" points="185.257,-64.3672 169.257,-56.3672 185.257,-48.3672 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="185.257,-64.3672 169.257,-56.3672 185.257,-48.3672 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="206.36" y="52.9706">implements</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-23.7803,54.3619 -23.7805,98.6298 -23.806,98.6298 -23.806,145.132 "/>
+    <polygon style="fill: #ffffff" points="-15.7803,54.3619 -23.7803,38.3619 -31.7803,54.3619 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-15.7803,54.3619 -23.7803,38.3619 -31.7803,54.3619 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-23.7932" y="95.6298">implements</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="609.074,206.602 790.011,206.602 790.011,111.984 972.242,111.984 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="959.595,116.984 975.595,111.984 959.595,106.984 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="419.274,62.5955 419.274,42.9354 850.178,42.9354 850.178,21.9805 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="855.178,34.6279 850.178,18.6279 845.178,34.6279 "/>
+  </g>
+</svg>
