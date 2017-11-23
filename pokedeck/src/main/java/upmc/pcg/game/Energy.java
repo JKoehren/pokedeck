@@ -3,31 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upmc.pcg;
+package upmc.pcg.game;
 
 /**
  *
  * @author Laura
  */
-public class Trainer extends Card{
+public class Energy extends Card{ 
+   
+    
     @SuppressWarnings("unchecked")
-	public Trainer(){
-        this.map_card.put("card_type", this.type="TRAINER");
-        this.name=set_name();
-        this.description=set_description();
+    public Energy(){
+        this.map_card.put("card_type", this.type="ENERGY");
+        this.energy_type=set_energy();
         report();
     }
+    
+    @Override
     public String toString(){
-        return "TRAINER : "+this.name;
+        String str;
+        str=("ENERGY : "+this.energy_type);
+        return str;
     }
+    @Override
     public void set_argument(String argument) {
         switch (argument){
-            case "name" :
-                this.name=set_name();
+            case "energy" :
+                this.energy_type=set_energy();
                 break;
-            case "description" :
-                this.description = set_description();
-                break; 
         }
     }
+    
+    
 }

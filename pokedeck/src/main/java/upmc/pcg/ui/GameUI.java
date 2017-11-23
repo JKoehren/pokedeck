@@ -15,8 +15,7 @@
 package upmc.pcg.ui;
 
 import java.util.*;
-import java.util.Enumeration;
-import upmc.pcg.Card;
+import upmc.pcg.game.Card;
 import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
 import upmc.pcg.game.Serializer;
@@ -30,12 +29,12 @@ public class GameUI extends Serializer implements TestsUI {
 
     public void start() {
         char login = print_welcome_msg();
-
+        
         ArrayList<String> names = ask_players_names();
         game.initialize(names);
 
-        game.get_player().set_password(ask_password(login));
-
+        //game.get_player().set_password(ask_password(login));
+        
         while(goOn){
             menu();
         }
@@ -44,17 +43,16 @@ public class GameUI extends Serializer implements TestsUI {
     }
 
     private ArrayList<String> ask_players_names() {
-        String player_name = "";
-        print("What's your name ? (max 20 char)");
-
-        do {
-        	 player_name = TestsUI.test_string( 20 );
-        	if (player_name == "Q") {
-        		print("Sorry you can't use this name. Retry please !");
-        	}
-        }while (player_name == "Q");
+        boolean addPlayer=true;
         ArrayList<String> al = new ArrayList<>();
-        al.add(player_name);
+        while(addPlayer){
+            String player_name = ask_for_player_name();
+            al.add(player_name);
+            print("Do you want to add a player? Y/N");
+            char[] ok = {'Y', 'N'};
+            char choice = TestsUI.test_char(ok);  
+            if(choice=='N') addPlayer=false;
+        }
         return al;
     }
 
@@ -64,6 +62,9 @@ public class GameUI extends Serializer implements TestsUI {
         char[] ok = {'Y', 'N'};
         char choice = TestsUI.test_char(ok);
         return choice;
+    }
+    private void welcome(Player p) {
+        print("Hi "+p+" !");
     }
     
     private String ask_password(char login) {
@@ -97,11 +98,13 @@ public class GameUI extends Serializer implements TestsUI {
     	ArrayList<Card> deck = game.get_player().get_deck().get_cards();
         int choice;
         
-        print("Do you want to :");
+        print("Hey "+game.get_player()+"! Do you want to :");
         print("1- Add a card to your deck");
         print("2- See your deck");
-        print("3- Leave the game");
-        choice = TestsUI.test_int(-1, 1, 3);
+        print("3- Change player");
+        print("4- Leave the game");
+
+        choice = TestsUI.test_int(-1, 1, 4);
         
         switch(choice){
             case 1:
@@ -111,7 +114,12 @@ public class GameUI extends Serializer implements TestsUI {
                 print_deck(deck);
                 break;
             case 3:
+                game.next_player();
+                welcome(game.get_player());
+                break;
+            case 4:
                 goOn = false;
+                break;
         }
     }
 
@@ -300,5 +308,17 @@ public class GameUI extends Serializer implements TestsUI {
 
         c.set_argument(c_arguments.get(choice));
 
+    }
+
+    private String ask_for_player_name() {
+        String player_name="";
+        print("What's your name ? (max 20 char)");
+            do {
+                player_name = TestsUI.test_string( 20 );
+                if (player_name == "Q") {
+                    print("Sorry you can't use this name. Retry please !");
+                }
+            }while (player_name == "Q");
+            return player_name;
     }
 }

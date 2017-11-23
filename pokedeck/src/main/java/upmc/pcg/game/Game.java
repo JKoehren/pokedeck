@@ -17,18 +17,48 @@ package upmc.pcg.game;
 import java.util.*;
 
 public class Game {
-  Player p1;
+  ArrayList<Player> players;
   
   public Game() {
-      
+      players=new ArrayList();
   }
   public void initialize(ArrayList<String> players_name) {
-    this.p1=new Player(players_name.get(0));
+      for(String name : players_name){
+          this.players.add(new Player(name));
+      }
   }
   public void play() {
     //...
   }
   public Player get_player(){
-      return this.p1;
+      Player p = null;
+      for(Player cursor : this.players){
+          if(cursor.get_isPlaying()){
+              p=cursor;
+          }
+      }
+      if(p!=null){
+          return p;
+      }else{
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      }
+      
   }
+  public Player next_player(){
+      Player current=get_player();
+      int next = this.players.indexOf(current)+1;
+      System.out.println(next);
+      if(next >= this.players.size()){
+          
+          next=0;
+      }
+      System.out.println(next);
+      
+      Player nextPlayer=this.players.get(next);
+      
+      current.play(false);
+      nextPlayer.play(true);
+      return nextPlayer;
+  }
+
 }

@@ -5,8 +5,6 @@
  */
 package upmc.pcg.game;
 
-import upmc.pcg.Deck;
-
 /**
  *
  * @author Laura
@@ -14,13 +12,16 @@ import upmc.pcg.Deck;
 public class Player {
     private String name;
     private String password;
+    private boolean isPlaying;
     private Deck deck=new Deck();
     
     public Player(){
         this.name="Player 1";
+        this.isPlaying=true;
     }
     public Player(String name){
         this.name=name;
+        this.isPlaying=true;
     }
     
     public void add_card(String card_type){
@@ -30,7 +31,7 @@ public class Player {
     public Deck get_deck(){
         return this.deck;
     }
-    
+
     public String toString(){
         return this.name;
     }
@@ -39,7 +40,15 @@ public class Player {
     	this.password = pwd;
     }
     
+    public void play(boolean inOut){
+        this.isPlaying=inOut;
+    }
+    
+    public boolean get_isPlaying(){
+        return this.isPlaying;
+    }
+    
     protected String get_password() {
-    	return password;
+    	return this.password;
     }
 }
