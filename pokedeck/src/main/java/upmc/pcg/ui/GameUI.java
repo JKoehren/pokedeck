@@ -18,17 +18,20 @@ import java.util.*;
 import upmc.pcg.game.Card;
 import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
-import upmc.pcg.game.Serializer;
+//import upmc.pcg.game.Serializer;
 
-public class GameUI extends Serializer implements TestsUI {
+public class GameUI extends MenuUI {
 	
     private final Game game = new Game();
 
     private boolean goOn = true;
+    
+    private ArrayList<Card> search = new ArrayList<>();
   
-
+    
     public void start() {
-        char login = print_welcome_msg();
+        //char login = 
+        print_welcome_msg();
         
         ArrayList<String> names = ask_players_names();
         game.initialize(names);
@@ -46,7 +49,7 @@ public class GameUI extends Serializer implements TestsUI {
         boolean addPlayer=true;
         ArrayList<String> al = new ArrayList<>();
         while(addPlayer){
-            String player_name = ask_for_player_name();
+            String player_name = ask_player_name();
             al.add(player_name);
             print("Do you want to add a player? Y/N");
             char[] ok = {'Y', 'N'};
@@ -66,45 +69,13 @@ public class GameUI extends Serializer implements TestsUI {
     private void welcome(Player p) {
         print("Hi "+p+" !");
     }
-    
-    private String ask_password(char login) {
-    	Player player = game.get_player();
-	    String password = "";
-    	if (login == 'Y') {
-	    	print("Please fill your password :");
-	    	password = TestsUI.test_string( 20 );
-	    	print("Sorry, this doesn't work right now, but enjoy the rest of the game while you wait...");
-	    	
-//TODO : Faire fonctionner cette saloperie de de chargement de deck
-//TODO : Enregistrer les utilisateurs et verifier leur existence au login
-//TODO : Crypter fichiers
-	    	
-//			print("Please wait while loading your data");
-//	    	game.get_player().get_deck().set_deck( upload_deck( player ) );
-	    	print("Welcome back " + player.toString() + ". I hope you're fine today !");
-	    } else {
-	    	print("Please fill a password for data backup :");
-	    	password = TestsUI.test_string( 20 );
-	    	print("OK " + player.toString() + ". I can feel you'll do great things !");
-	    }
-	    return password;
-    }
-  
-    protected static void print(String str){
-        System.out.println(str);
-    }
 
     private void menu() {
-    	ArrayList<Card> deck = game.get_player().get_deck().get_cards();
+    	ArrayList<Card> deck = game.get_actualDeck();
         int choice;
         
         print("Hey "+game.get_player()+"! Do you want to :");
-        print("1- Add a card to your deck");
-        print("2- See your deck");
-        print("3- Change player");
-        print("4- Leave the game");
-
-        choice = TestsUI.test_int(-1, 1, 4);
+        choice = mainMenu();
         
         switch(choice){
             case 1:
@@ -145,11 +116,10 @@ public class GameUI extends Serializer implements TestsUI {
 
     private void print_goodbye_msg() {
     	print("...Save of your deck in progress ...");
-    	save_deck( game.get_player() );
+    	//save_deck( game.get_player() );
         print("Bye " + game.get_player() + "! See you soon :D");
     }
 
-    @SuppressWarnings("unchecked")
 	private void print_deck(ArrayList<Card> deck) {
         
         print("------------------------------YOUR DECK !-------------------------------");
@@ -157,11 +127,7 @@ public class GameUI extends Serializer implements TestsUI {
             print("Your deck is empty !!");
             
         }else{ 
-        	print("Give the cards number to print the entire cards or :");
-            print("Q to quit the deck menu");
-            print("S to select by name");
-            print("T to sort by type");
-            print("");
+        	menuDeck();
             for(int i = 0, n = deck.size() ; i < n ; i++){
                 print( (i+1) + " - " + deck.get(i) );
             }
@@ -170,77 +136,20 @@ public class GameUI extends Serializer implements TestsUI {
     }
     
     private void print_card(ArrayList<Card> deck) {
-    	ArrayList<Card> search = new ArrayList<Card>();
-    	String choice = "";
+    	search.clear();
+    	int deckSize = deck.size();
         int index=-1;
         do{
-            choice=TestsUI.test_string(2);
-            if (choice.charAt(0) == 'S') {
-            	index=-3;
-            }else if(choice.charAt(0) == 'T') {
-            	index=-4;
-            }else if (choice.charAt(0) != 'Q'){
-                try{
-                   index = Integer.parseInt(choice); 
-                   if(index > deck.size() || index < 1){
-                        index=-1;
-                        print("Please enter a good value");
-                   }
-                }catch(NumberFormatException e){ 
-                    index=-1;
-                    print("Please enter a good value");
-                }
-            }else{
-                index=-2;
-            }    
+        	index = testMenuCard(deckSize);
         }while( index == -1 );
-        
         if(index == -3) {
-        	
-        	print("Which one do you want to see? (Write his name, max 15 char)");
-        	choice=TestsUI.test_string(15);
-        	for(int i = 0, n = deck.size() ; i < n ; i++){
-                String cardList = deck.get(i) +"";
-                String[] cardName = cardList.split(":");
-                if (cardName[1].toLowerCase().indexOf(choice.toLowerCase()) > -1) {
-                	index = -2;
-                	search.add(deck.get(i));
-                }
-            }
-        	if (index == -3) {
-        		print("No card found with this name!");
-        		index++;
-        	}else{
-        		print_deck(search);
-        	}
+        	index = selectByName(deck);
+        } else if (index == -4) {
+        	index = sortByType(deck);
         }
-        
-        if (index == -4) {
-        	print("What kind of cards should we display?");
-        	print("1 : Energy");
-        	print("2 : Pokemon");
-        	print("3 : Trainer");
-        	int choiceType=TestsUI.test_int(-1, 1, 3);
-        	choiceType--;
-        	String[] types = {"energy","pokemon","trainer"};
-        	for(int i = 0, n = deck.size() ; i < n ; i++){
-        		String cardList = deck.get(i) +"";
-                String[] cardName = cardList.split(":");
-                if (cardName[0].toLowerCase().indexOf(types[choiceType]) > -1) {
-                	search.add(deck.get(i));
-                	index = -2;
-                }
-        	}
-        	if (index == -4) {
-        		print("No card found with this type!");
-        		index++;
-        		index++;
-        	}else{
-        		print_deck(search);
-        	}
-        }
-        
-        if(index!=-2){
+        if (index == -2) {
+        	print_deck(search);
+        } else {
             index--;
             print("You want to see the card "+deck.get(index));
             Card c = deck.get(index);
@@ -250,15 +159,47 @@ public class GameUI extends Serializer implements TestsUI {
         }
     }
     
+    private int selectByName(ArrayList<Card> deck) {
+    	int index = -3;
+    	print("Which one do you want to see? (Write his name, max 15 char)");
+    	String choice=TestsUI.test_string(15);
+    	for(int i = 0, n = deck.size() ; i < n ; i++){
+            String cardList = deck.get(i) +"";
+            String[] cardName = cardList.split(":");
+            if (cardName[1].toLowerCase().indexOf(choice.toLowerCase()) > -1) {
+            	index = -2;
+            	search.add(deck.get(i));
+            }
+        }
+    	if (index == -3) {
+    		print("No card found with this name!");
+    		index++;
+    	}
+    	return index;
+    }
+    
+    private int sortByType(ArrayList<Card> deck) {
+    	int index = -4;
+    	int choiceType = menuSortCard() - 1;
+    	String[] types = {"energy","pokemon","trainer"};
+    	for(int i = 0, n = deck.size() ; i < n ; i++){
+    		String cardList = deck.get(i) +"";
+            String[] cardName = cardList.split(":");
+            if (cardName[0].toLowerCase().indexOf(types[choiceType]) > -1) {
+            	search.add(deck.get(i));
+            	index = -2;
+            }
+    	}
+    	if (index == -4) {
+    		print("No card found with this type!");
+    		index = -2;
+    	}
+    	return index;
+    }
+    
     private void menu_card(int index, ArrayList<Card> deck) {
         
-        print("");
-        print("Do you want to :");
-        print("1- Remove the card");
-        print("2- Modify the card");
-        print("3- Return to the deck");
-        
-        int choice = TestsUI.test_int(-1, 1, 3);
+        int choice = menuCard();
         
         switch(choice){
             case 1:
@@ -294,7 +235,7 @@ public class GameUI extends Serializer implements TestsUI {
         while(it.hasNext()){
             String next=it.next();
             if( !c_map.get( next ).equals("") && !next.equals("card_type") && (!next.contains("attack") || next.equals("attack1_name"))){
-                if( next.equals("energy_type")) next = "energy";
+            if( next.equals("energy_type")) next = "energy";
                 if( next.equals("attack1_name")) next = "attacks";
                 if( next.equals("retreat_cost")) next = "retreat";
                 
@@ -310,7 +251,7 @@ public class GameUI extends Serializer implements TestsUI {
 
     }
 
-    private String ask_for_player_name() {
+    private String ask_player_name() {
         String player_name="";
         print("What's your name ? (max 20 char)");
             do {
@@ -321,4 +262,27 @@ public class GameUI extends Serializer implements TestsUI {
             }while (player_name == "Q");
             return player_name;
     }
+    
+    /*private String ask_password(char login) {
+    	Player player = game.get_player();
+	    String password = "";
+    	if (login == 'Y') {
+	    	print("Please fill your password :");
+	    	password = TestsUI.test_string( 20 );
+	    	print("Sorry, this doesn't work right now, but enjoy the rest of the game while you wait...");
+	    	
+//TODO : Faire fonctionner cette saloperie de de chargement de deck
+//TODO : Enregistrer les utilisateurs et verifier leur existence au login
+//TODO : Crypter fichiers
+	    	
+//			print("Please wait while loading your data");
+//	    	game.get_player().get_deck().set_deck( upload_deck( player ) );
+	    	print("Welcome back " + player.toString() + ". I hope you're fine today !");
+	    } else {
+	    	print("Please fill a password for data backup :");
+	    	password = TestsUI.test_string( 20 );
+	    	print("OK " + player.toString() + ". I can feel you'll do great things !");
+	    }
+	    return password;
+    }*/
 }

@@ -47,18 +47,21 @@ public class Game {
   public Player next_player(){
       Player current=get_player();
       int next = this.players.indexOf(current)+1;
-      System.out.println(next);
       if(next >= this.players.size()){
-          
           next=0;
       }
-      System.out.println(next);
       
       Player nextPlayer=this.players.get(next);
       
       current.play(false);
       nextPlayer.play(true);
       return nextPlayer;
+  }
+  
+  public ArrayList<Card> get_actualDeck(){
+	  
+	  return this.get_player().get_deck().get_cards();
+	  
   }
 
 }
