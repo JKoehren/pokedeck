@@ -7,7 +7,7 @@ import upmc.pcg.game.Player;
 
 public class GameUI extends MenuUI {
 	
-    private final Game game = new Game();
+    
 
     private boolean goOn = true;
     
@@ -62,7 +62,7 @@ public class GameUI extends MenuUI {
                 game.next_player();
                 welcome(game.get_player());
                 break;
-            case 4:
+            case 0:
                 goOn = false;
                 break;
         }
@@ -220,7 +220,7 @@ public class GameUI extends MenuUI {
         }
         
         int choice =TestsUI.test_int(-1, 1, i);
-
+        
         c.set_argument(c_arguments.get(choice));
 
     }

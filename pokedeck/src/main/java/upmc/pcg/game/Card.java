@@ -159,5 +159,5 @@ public class Card {
     	return this.type;
     }
 
-	public void set_argument(String string) {}
+	public void set_argument(String string) {System.out.println(this.name);}
 }

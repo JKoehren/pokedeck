@@ -46,7 +46,7 @@ public class CreationCardUI implements TestsUI {
         print( "How many ENERGY cards will you need to have? (From 1 to 5)" );
         int number = TestsUI.test_int( -1, 0, 6 );
         
-        for( int i = 0 ; i < number ; i++ ) {
+        for( int i = 1 ; i <= number ; i++ ) {
         	
             print( "Card " + i + ": wich energy?" );
             print( print_hashMap( energy_type ) );

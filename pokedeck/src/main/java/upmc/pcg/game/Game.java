@@ -20,6 +20,9 @@ public class Game implements Serializer {
 		}
 	}
 	
+        public int getPlayersNumber(){
+            return players.size();
+        }
 	public Player get_player() {
 		
 		Player p = null;
@@ -41,6 +44,7 @@ public class Game implements Serializer {
 	public Player next_player() {
 		
 		Player current = get_player();
+ 
 		int next = this.players.indexOf( current ) + 1;
 		
 		if( next >= this.players.size() ) {

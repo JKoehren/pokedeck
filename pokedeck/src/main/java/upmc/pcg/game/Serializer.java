@@ -36,7 +36,7 @@ public interface Serializer {
 			Gson gson = new GsonBuilder().create();
 			Deck toUp = gson.fromJson( reader, Deck.class );
 			p.set_deck( toUp );
-			System.out.println( "Le deck de " + p + " a bien été chargé !" );
+			System.out.println(  p + "'s deck is loaded!" );
 			
 		} catch (FileNotFoundException e) {
 		} catch (IOException e) {

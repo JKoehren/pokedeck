@@ -34,7 +34,7 @@ public class Pokemon extends Card {
     }
     
     public void set_argument( String argument ) {
-    	
+    	System.out.println(argument);
         switch ( argument ){
             case "energy" :
                 this.energy_type = set_energy();

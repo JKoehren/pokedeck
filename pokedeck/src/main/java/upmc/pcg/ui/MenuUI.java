@@ -1,7 +1,8 @@
 package upmc.pcg.ui;
+import upmc.pcg.game.Game;
 
 public class MenuUI implements TestsUI  {
-	
+	protected final Game game = new Game();
 	private int choice;
     
     protected static void print( String str ){
@@ -18,12 +19,15 @@ public class MenuUI implements TestsUI  {
     }
     
     protected int mainMenu() {
-    	
+    	int maxChoice=2;
     	print( "1- Add a card to your deck" );
         print( "2- See your deck" );
-        print( "3- Change player" );
-        print( "4- Leave the game" );
-        choice = TestsUI.test_int( -1, 1, 4 );
+       if(game.getPlayersNumber()>1){
+           print( "3- Change player" );
+           maxChoice=3;
+       }
+        print( "0- Leave the game" );
+        choice = TestsUI.test_int( -1, 0, maxChoice );
         return choice;
     }
     
