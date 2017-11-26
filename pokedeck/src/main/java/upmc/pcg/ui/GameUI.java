@@ -1,24 +1,9 @@
-// Copyright 2017 Pierre Talbot (IRCAM)
-
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-
-//     http://www.apache.org/licenses/LICENSE-2.0
-
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 package upmc.pcg.ui;
 
 import java.util.*;
 import upmc.pcg.game.Card;
 import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
-//import upmc.pcg.game.Serializer;
 
 public class GameUI extends MenuUI {
 	
@@ -30,18 +15,14 @@ public class GameUI extends MenuUI {
   
     
     public void start() {
-        //char login = 
         print_welcome_msg();
         
         ArrayList<String> names = ask_players_names();
         game.initialize(names);
-
-        //game.get_player().set_password(ask_password(login));
         
         while(goOn){
             menu();
         }
-        game.play();
         print_goodbye_msg();
     }
 
@@ -51,20 +32,13 @@ public class GameUI extends MenuUI {
         while(addPlayer){
             String player_name = ask_player_name();
             al.add(player_name);
-            print("Do you want to add a player? Y/N");
-            char[] ok = {'Y', 'N'};
-            char choice = TestsUI.test_char(ok);  
-            if(choice=='N') addPlayer=false;
+            addPlayer = newPlayer();
         }
         return al;
     }
 
-    private char print_welcome_msg() {
+    private void print_welcome_msg() {
         print("Hi Trainer ! Welcome to the arena !");
-        print("Are you already registered? Y/N");
-        char[] ok = {'Y', 'N'};
-        char choice = TestsUI.test_char(ok);
-        return choice;
     }
     private void welcome(Player p) {
         print("Hi "+p+" !");
@@ -115,8 +89,8 @@ public class GameUI extends MenuUI {
     }
 
     private void print_goodbye_msg() {
-    	print("...Save of your deck in progress ...");
-    	//save_deck( game.get_player() );
+    	print("...Save of deck(s) in progress ...");
+    	game.set_decks();
         print("Bye " + game.get_player() + "! See you soon :D");
     }
 
@@ -254,35 +228,12 @@ public class GameUI extends MenuUI {
     private String ask_player_name() {
         String player_name="";
         print("What's your name ? (max 20 char)");
-            do {
-                player_name = TestsUI.test_string( 20 );
-                if (player_name == "Q") {
-                    print("Sorry you can't use this name. Retry please !");
-                }
-            }while (player_name == "Q");
-            return player_name;
+        do {
+            player_name = TestsUI.test_string( 20 );
+            if (player_name == "Q") {
+                print("Sorry you can't use this name. Retry please !");
+            }
+        } while (player_name == "Q");
+        return player_name;
     }
-    
-    /*private String ask_password(char login) {
-    	Player player = game.get_player();
-	    String password = "";
-    	if (login == 'Y') {
-	    	print("Please fill your password :");
-	    	password = TestsUI.test_string( 20 );
-	    	print("Sorry, this doesn't work right now, but enjoy the rest of the game while you wait...");
-	    	
-//TODO : Faire fonctionner cette saloperie de de chargement de deck
-//TODO : Enregistrer les utilisateurs et verifier leur existence au login
-//TODO : Crypter fichiers
-	    	
-//			print("Please wait while loading your data");
-//	    	game.get_player().get_deck().set_deck( upload_deck( player ) );
-	    	print("Welcome back " + player.toString() + ". I hope you're fine today !");
-	    } else {
-	    	print("Please fill a password for data backup :");
-	    	password = TestsUI.test_string( 20 );
-	    	print("OK " + player.toString() + ". I can feel you'll do great things !");
-	    }
-	    return password;
-    }*/
 }

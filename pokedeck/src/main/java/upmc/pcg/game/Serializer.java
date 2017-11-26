@@ -1,26 +1,59 @@
 package upmc.pcg.game;
 
-import java.io.File;
+
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-//import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
-public class Serializer {
+public interface Serializer {
 	
-	ObjectMapper mapper = new ObjectMapper();
-
-	public Serializer() {
+	public static void saveDeck( Player p ) {
+		
+		String uri = "data/" + p.toString() + ".json";
+		Deck toSave = p.get_deck();
+		
+		try ( Writer writer = new FileWriter(uri) ) {
+			Gson gson = new GsonBuilder().create();
+			gson.toJson(toSave, writer);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	public static void uploadDeck( Player p ) {
+		try(Reader reader = new FileReader("data/" + p.toString() + ".json")){
+			Gson gson = new GsonBuilder().create();
+			Deck toUp = gson.fromJson(reader, Deck.class);
+			p.set_deck(toUp);
+			System.out.println("Le deck de "+p+" a bien été chargé !");
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	
+//	ObjectMapper mapper = new ObjectMapper();
+	
+	
+	
+	
+	
+	
+	
+	
+/*	@SuppressWarnings("unchecked")
 	public void save_deck(Player player) {
 		
 		String folder = player.toString() + "_" + player.get_password();
@@ -73,6 +106,6 @@ public class Serializer {
 		}
 		
 		return deckIn;
-	}
+	}*/
 	
 }

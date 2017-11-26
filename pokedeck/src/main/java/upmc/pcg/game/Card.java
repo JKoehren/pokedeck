@@ -32,7 +32,17 @@ public class Card {
 	        put(11, "colorless");
     	}
     };
-
+    
+    public String toString(){
+    	String res = this.get_type_card().toUpperCase() + " : ";
+    	if (this.name != null) {
+    		res += this.name;
+    	} else {
+    		res += this.energy_type;
+    	}
+    	return res;
+    }
+    
     protected String set_energy(){
         String energy=CreationCardUI.ask_energy_type(energies, this.type);
         this.map_card.put("energy_type", energy);
@@ -127,7 +137,7 @@ public class Card {
     }
     
     public String get_type_card() {
-    	return (String) this.map_card.get("card_type");
+    	return this.type;
     }
     public void set_argument(String argument) {
 

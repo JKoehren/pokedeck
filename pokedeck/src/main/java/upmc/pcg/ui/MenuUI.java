@@ -8,6 +8,14 @@ public class MenuUI implements TestsUI  {
         System.out.println(str);
     }
     
+    protected boolean newPlayer() {
+    	print("Do you want to add a player? Y/N");
+        char[] ok = {'Y', 'N'};
+        char choice = TestsUI.test_char(ok);  
+        if(choice=='N') return false;
+        return true;
+    }
+    
     protected int mainMenu() {
     	print("1- Add a card to your deck");
         print("2- See your deck");

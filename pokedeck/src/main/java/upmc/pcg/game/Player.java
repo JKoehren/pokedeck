@@ -11,7 +11,6 @@ package upmc.pcg.game;
  */
 public class Player {
     private String name;
-    private String password;
     private boolean isPlaying;
     private Deck deck=new Deck();
     
@@ -31,13 +30,13 @@ public class Player {
     public Deck get_deck(){
         return this.deck;
     }
+    
+    public void set_deck(Deck up) {
+    	this.deck = up;
+    }
 
     public String toString(){
         return this.name;
-    }
-    
-    public void set_password(String pwd) {
-    	this.password = pwd;
     }
     
     public void play(boolean inOut){
@@ -48,7 +47,4 @@ public class Player {
         return this.isPlaying;
     }
     
-    protected String get_password() {
-    	return this.password;
-    }
 }
