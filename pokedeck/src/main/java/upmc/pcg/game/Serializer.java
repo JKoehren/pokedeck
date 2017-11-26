@@ -43,4 +43,20 @@ public interface Serializer {
 			e.printStackTrace();
 		}		
 	}
+        public static void uploadDeck( Player p , String deck) {
+		
+		String uri = "data/" + deck + ".json";
+		
+		try( Reader reader = new FileReader( uri ) ) {
+			
+			Gson gson = new GsonBuilder().create();
+			Deck toUp = gson.fromJson( reader, Deck.class );
+			p.set_deck( toUp );
+			System.out.println(  p + "'s deck is loaded!" );
+			
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
 }

@@ -5,9 +5,7 @@ import upmc.pcg.game.Card;
 import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
 
-public class GameUI extends MenuUI {
-	
-    
+public class GameUI extends MenuUI {    
 
     private boolean goOn = true;
     
@@ -44,6 +42,32 @@ public class GameUI extends MenuUI {
         print("Hi "+p+" !");
     }
 
+    public static String ask_if_starter_deck(Player p) {
+        print(p+", do you wanna start with a starter deck ? (Y/N)");
+        char[] ok = {'Y', 'N'};
+        char starterDeck=TestsUI.test_char(ok);
+        String deck;
+        
+        if(starterDeck=='N'){
+            deck="";
+        }else{
+            
+            int choice = menuStarterDeck();
+            switch(choice){
+                case 1:
+                    deck="Feu";
+                    break;
+                case 2:
+                    deck="Eau";
+                    break;
+                default:
+                    deck="";
+            }
+            
+        }
+        return deck;
+        
+    }
     private void menu() {
     	ArrayList<Card> deck = game.get_actualDeck();
         int choice;

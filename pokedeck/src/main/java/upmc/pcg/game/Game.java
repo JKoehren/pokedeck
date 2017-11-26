@@ -1,4 +1,5 @@
 package upmc.pcg.game;
+import upmc.pcg.ui.GameUI;
 
 import java.util.*;
 
@@ -15,7 +16,13 @@ public class Game implements Serializer {
 		for( String name : players_name ) {
 			
 			Player user = new Player( name );
-			Serializer.uploadDeck( user );
+                        String starterDeck = GameUI.ask_if_starter_deck( user );
+                        if(!starterDeck.equals("")){
+                            Serializer.uploadDeck( user, starterDeck );
+                        }else{
+                           Serializer.uploadDeck( user ); 
+                        }
+			
 			this.players.add( user );
 		}
 	}

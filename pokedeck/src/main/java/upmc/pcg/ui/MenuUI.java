@@ -27,7 +27,7 @@ public class MenuUI implements TestsUI  {
            maxChoice=3;
        }
         print( "0- Leave the game" );
-        choice = TestsUI.test_int( -1, 0, maxChoice );
+        int choice = TestsUI.test_int( -1, 0, maxChoice );
         return choice;
     }
     
@@ -87,7 +87,16 @@ public class MenuUI implements TestsUI  {
     	print( "1 : Energy" );
     	print( "2 : Pokemon" );
     	print( "3 : Trainer" );
-    	choice = TestsUI.test_int( -1, 1, 3 );
+    	int choice = TestsUI.test_int( -1, 1, 3 );
     	return choice;
     }   
+    
+    protected static int menuStarterDeck(){
+        print("Which stater deck will you choose ?");
+        print("1- Fire and fighting");
+        print("2- Water and grass");
+        print("3- Finally, none. I want to create my own deck.");
+        int choice = TestsUI.test_int( -1, 1, 3 );
+    	return choice;
+    }
 }
