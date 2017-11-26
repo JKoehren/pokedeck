@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+# Data users
+/pokedeck/data/
+*.json
+
 # Log file
 *.log
 
