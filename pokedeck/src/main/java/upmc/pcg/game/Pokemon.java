@@ -15,7 +15,9 @@ public class Pokemon extends Card {
     private String resistance;
     private HashMap retreat_cost;
     
-    public Pokemon() {
+    public Pokemon() {}
+    
+    public void settings() {
     	
         this.map_card.put( "card_type", this.type = "POKEMON" );
         this.name = set_name();

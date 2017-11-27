@@ -6,7 +6,9 @@ package upmc.pcg.game;
 
 public class Energy extends Card { 
     
-    public Energy() {
+    public Energy() {}
+    
+    public void settings() {
     	
         this.map_card.put( "card_type", this.type = "ENERGY" );
         this.energy_type = set_energy();

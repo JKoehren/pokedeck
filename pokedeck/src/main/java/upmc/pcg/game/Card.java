@@ -160,4 +160,6 @@ public class Card {
     }
 
 	public void set_argument(String string) {System.out.println(this.name);}
+
+	public void settings() {};
 }

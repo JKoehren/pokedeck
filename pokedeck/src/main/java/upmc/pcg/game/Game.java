@@ -16,12 +16,12 @@ public class Game implements Serializer {
 		for( String name : players_name ) {
 			
 			Player user = new Player( name );
-                        String starterDeck = GameUI.ask_if_starter_deck( user );
-                        if(!starterDeck.equals("")){
-                            Serializer.uploadDeck( user, starterDeck );
-                        }else{
-                           Serializer.uploadDeck( user ); 
-                        }
+			
+			if (! Serializer.uploadDeck( user )) {
+				
+				String starterDeck = GameUI.ask_if_starter_deck( user );
+                if(!starterDeck.equals("")) Serializer.uploadDeck( user, starterDeck );
+			}
 			
 			this.players.add( user );
 		}

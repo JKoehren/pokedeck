@@ -6,13 +6,15 @@ package upmc.pcg.game;
 
 public class Trainer extends Card {
 	
-	public Trainer() {
+	public Trainer() {}
+	
+	public void settings() {
 		
         this.map_card.put( "card_type", this.type = "TRAINER" );
         this.name = set_name();
         this.description = set_description();
         report();
-    }
+	}
 	
     public String toString() {
         return "TRAINER : " + this.name;

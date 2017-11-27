@@ -2,7 +2,6 @@ package upmc.pcg.ui;
 
 import java.util.*;
 import upmc.pcg.game.Card;
-import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
 
 public class GameUI extends MenuUI {    
@@ -145,8 +144,10 @@ public class GameUI extends MenuUI {
         } else if (index == -4) {
         	index = sortByType(deck);
         }
-        if (index == -2) {
+        if (index == -5) {
         	print_deck(search);
+        } else if (index == -2) {
+        	return;
         } else {
             index--;
             print("You want to see the card "+deck.get(index));
@@ -165,13 +166,13 @@ public class GameUI extends MenuUI {
             String cardList = deck.get(i) +"";
             String[] cardName = cardList.split(":");
             if (cardName[1].toLowerCase().indexOf(choice.toLowerCase()) > -1) {
-            	index = -2;
+            	index = -5;
             	search.add(deck.get(i));
             }
         }
     	if (index == -3) {
     		print("No card found with this name!");
-    		index++;
+    		index = -2;
     	}
     	return index;
     }
@@ -185,7 +186,7 @@ public class GameUI extends MenuUI {
             String[] cardName = cardList.split(":");
             if (cardName[0].toLowerCase().indexOf(types[choiceType]) > -1) {
             	search.add(deck.get(i));
-            	index = -2;
+            	index = -5;
             }
     	}
     	if (index == -4) {
