@@ -20,14 +20,14 @@ public class Pokemon extends Card {
     public void settings() {
     	
         this.map_card.put( "card_type", this.type = "POKEMON" );
-        this.name = set_name();
-        this.energy_type = set_energy();
-        this.hp = set_hp();
-        this.attacks = set_attacks();
-        this.weakness = set_weakness();
-        this.resistance = set_resistance();
-        this.retreat_cost = set_retreat();
-        this.description = set_description();
+        this.name = setName();
+        this.energy_type = setEnergy();
+        this.hp = setHP();
+        this.attacks = setAttacks();
+        this.weakness = setWeakness();
+        this.resistance = setResistance();
+        this.retreat_cost = setRetreat();
+        this.description = setDescription();
         report();
     }
     
@@ -35,32 +35,32 @@ public class Pokemon extends Card {
         return "POKEMON : "+this.name;
     }
     
-    public void set_argument( String argument ) {
+    public void setArgument( String argument ) {
     	System.out.println(argument);
         switch ( argument ){
             case "energy" :
-                this.energy_type = set_energy();
+                this.energy_type = setEnergy();
                 break;
             case "name" :
-                this.name = set_name();
+                this.name = setName();
                 break;
             case "description" :
-                this.description = set_description();
+                this.description = setDescription();
                 break;
             case "HP" :
-                this.hp = set_hp();
+                this.hp = setHP();
                 break;
             case "attacks" :
-                this.attacks = set_attacks();
+                this.attacks = setAttacks();
                 break;
             case "weakness" :
-                this.weakness = set_weakness();
+                this.weakness = setWeakness();
                 break;
             case "resistance" :
-                this.resistance = set_resistance();
+                this.resistance = setResistance();
                 break;
             case "retreat" :
-                this.retreat_cost = set_retreat();
+                this.retreat_cost = setRetreat();
                 break;
         }
     }

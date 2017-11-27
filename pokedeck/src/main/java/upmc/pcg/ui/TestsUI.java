@@ -47,7 +47,7 @@ public interface TestsUI {
           return str;
     }
     
-    public static int test_int( int not_a_choice, int min, int max ) {
+    public static int testInt( int not_a_choice, int min, int max ) {
         
     	int i = not_a_choice;
         

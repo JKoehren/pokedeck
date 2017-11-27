@@ -12,7 +12,7 @@ import upmc.pcg.ui.GameUI;
 
 public class Card {
 	
-    protected HashMap map_card = set_map_card();
+    protected HashMap map_card = setMapCard();
     protected String type, name, energy_type, description;
     
     private static HashMap<Integer,String> energies = new HashMap<Integer, String>() {
@@ -33,7 +33,7 @@ public class Card {
     
     public String toString() {
     	
-    	String res = this.get_type_card().toUpperCase() + " : ";
+    	String res = this.getTypeCard().toUpperCase() + " : ";
     	
     	if ( this.name != null ) {
     		res += this.name;
@@ -45,21 +45,21 @@ public class Card {
     	return res;
     }
     
-    protected String set_energy() {
+    protected String setEnergy() {
     	
         String energy = CreationCardUI.ask_energy_type( energies, this.type );
         this.map_card.put( "energy_type", energy );
         return energy;
     }
     
-    protected String set_name() {
+    protected String setName() {
     	
         String name = CreationCardUI.ask_name( this.type );
         this.map_card.put( "name", name );
         return name;
     }
     
-    protected ArrayList<Attack> set_attacks() {
+    protected ArrayList<Attack> setAttacks() {
     	
         ArrayList<Attack> attacks = new ArrayList<>();
         boolean add_attack = true;
@@ -67,16 +67,16 @@ public class Card {
         
         do {
         	
-            String name = CreationCardUI.ask_attack_name();
-            int strenght = CreationCardUI.ask_attack_strenght();
-            ArrayList energy_needed = CreationCardUI.ask_attack_energy( energies );
+            String name = CreationCardUI.askAttackName();
+            int strenght = CreationCardUI.askAttackStrenght();
+            ArrayList energy_needed = CreationCardUI.askAttackEnergy( energies );
             Attack a = new Attack( name, strenght, energy_needed );
             attacks.add( a );
             
             if( i == 1 ) {
             	
                 this.map_card.put( "attack_number", 2 );
-                add_attack = CreationCardUI.ask_if_add_attack();
+                add_attack = CreationCardUI.askIfAddAttack();
                 
             } else {
                 add_attack = false;
@@ -92,46 +92,46 @@ public class Card {
         return attacks;
     }
     
-    protected int set_hp() {
+    protected int setHP() {
     	
-        int hp = CreationCardUI.ask_hp();
+        int hp = CreationCardUI.askHP();
         this.map_card.put( "HP", hp + "" );
         return hp;
     }
     
-    protected String set_weakness() {
+    protected String setWeakness() {
     	
-        String weakness = CreationCardUI.ask_weakness( energies );
+        String weakness = CreationCardUI.askWeakness( energies );
         this.map_card.put( "weakness", weakness );
         return weakness;
     }
     
-    protected String set_resistance() {
+    protected String setResistance() {
     	
-        String resistance = CreationCardUI.ask_resistance( energies );
+        String resistance = CreationCardUI.askResistance( energies );
         this.map_card.put( "resistance", resistance );
         return resistance;
     }
     
-    protected HashMap set_retreat() {
+    protected HashMap setRetreat() {
     	
-        HashMap retreat = CreationCardUI.ask_retreat( energies );
+        HashMap retreat = CreationCardUI.askRetreat( energies );
         this.map_card.put( "retreat_cost", retreat.get( "number" ) + " " + retreat.get( "energy" ) );
         return retreat;
     }
     
-    protected String set_description() {
+    protected String setDescription() {
     	
-        String description = CreationCardUI.ask_description( this.type );
+        String description = CreationCardUI.askDescription( this.type );
         this.map_card.put( "description", description );
         return description;
     }
     
     protected void report() {
-        GameUI.report_creation_card( this.toString() );
+        GameUI.reportCreationCard( this.toString() );
     }
     
-    private HashMap<String, String> set_map_card() {
+    private HashMap<String, String> setMapCard() {
     	
         HashMap<String, String> hm = new HashMap<String, String>();
         hm.put( "card_type", "" );
@@ -151,15 +151,15 @@ public class Card {
         return hm;
     }
     
-    public HashMap get_map_card() {
+    public HashMap getMapCard() {
         return this.map_card;
     }
     
-    public String get_type_card() {
+    public String getTypeCard() {
     	return this.type;
     }
 
-	public void set_argument(String string) {System.out.println(this.name);}
+	public void setArgument(String string) {}
 
 	public void settings() {};
 }

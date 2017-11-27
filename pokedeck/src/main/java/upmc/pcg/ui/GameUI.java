@@ -2,6 +2,7 @@ package upmc.pcg.ui;
 
 import java.util.*;
 import upmc.pcg.game.Card;
+import upmc.pcg.game.Game;
 import upmc.pcg.game.Player;
 
 public class GameUI extends MenuUI {    
@@ -12,36 +13,36 @@ public class GameUI extends MenuUI {
   
     
     public void start() {
-        print_welcome_msg();
+        printWelcomeMsg();
         
-        ArrayList<String> names = ask_players_names();
+        ArrayList<String> names = askPlayersNames();
         game.initialize(names);
         
         while(goOn){
             menu();
         }
-        print_goodbye_msg();
+        printGoodbyeMsg();
     }
 
-    private ArrayList<String> ask_players_names() {
+    private ArrayList<String> askPlayersNames() {
         boolean addPlayer=true;
         ArrayList<String> al = new ArrayList<>();
         while(addPlayer){
-            String player_name = ask_player_name();
+            String player_name = askPlayerName();
             al.add(player_name);
             addPlayer = newPlayer();
         }
         return al;
     }
 
-    private void print_welcome_msg() {
+    private void printWelcomeMsg() {
         print("Hi Trainer ! Welcome to the arena !");
     }
     private void welcome(Player p) {
         print("Hi "+p+" !");
     }
 
-    public static String ask_if_starter_deck(Player p) {
+    public static String askIfStarterDeck(Player p) {
         print(p+", do you wanna start with a starter deck ? (Y/N)");
         char[] ok = {'Y', 'N'};
         char starterDeck=TestsUI.test_char(ok);
@@ -68,22 +69,25 @@ public class GameUI extends MenuUI {
         
     }
     private void menu() {
-    	ArrayList<Card> deck = game.get_actualDeck();
+    	ArrayList<Card> deck = game.getActualDeck();
         int choice;
         
-        print("Hey "+game.get_player()+"! Do you want to :");
+        print("Hey "+game.getPlayer()+"! Do you want to :");
         choice = mainMenu();
         
         switch(choice){
             case 1:
-                ask_type_card();
+                askTypeCard();
                 break;
             case 2:
-                print_deck(deck);
+                printDeck(deck);
                 break;
             case 3:
-                game.next_player();
-                welcome(game.get_player());
+                game.nextPlayer();
+                welcome(game.getPlayer());
+                break;
+            case 4:
+                game.startMatch();
                 break;
             case 0:
                 goOn = false;
@@ -91,7 +95,7 @@ public class GameUI extends MenuUI {
         }
     }
 
-    private void ask_type_card() {
+    private void askTypeCard() {
         HashMap<Integer,String> type_card_tab=new HashMap<>();
         type_card_tab.put(1, "ENERGY");
         type_card_tab.put(2, "POKEMON");
@@ -101,23 +105,23 @@ public class GameUI extends MenuUI {
         print("What kind of card do you want to create :");
         print("1- ENERGY        2- POKEMON        3-TRAINER");
         
-        choice = TestsUI.test_int(-1, 1, type_card_tab.size());
+        choice = TestsUI.testInt(-1, 1, type_card_tab.size());
 
-        game.get_player().add_card( (String)type_card_tab.get(choice) );
+        game.getPlayer().add_card( (String)type_card_tab.get(choice) );
         
     }
     
-    public static void report_creation_card(String c){
+    public static void reportCreationCard(String c){
         print("Well done ! You've just created a new card " + c);
     }
 
-    private void print_goodbye_msg() {
+    private void printGoodbyeMsg() {
     	print("...Save of deck(s) in progress ...");
-    	game.set_decks();
-        print("Bye " + game.get_player() + "! See you soon :D");
+    	game.setDecks();
+        print("Bye " + game.getPlayer() + "! See you soon :D");
     }
 
-	private void print_deck(ArrayList<Card> deck) {
+	private void printDeck(ArrayList<Card> deck) {
         
         print("------------------------------YOUR DECK !-------------------------------");
         if(deck.size() == 0){
@@ -128,11 +132,11 @@ public class GameUI extends MenuUI {
             for(int i = 0, n = deck.size() ; i < n ; i++){
                 print( (i+1) + " - " + deck.get(i) );
             }
-            print_card(deck);
+            printCard(deck);
         }
     }
     
-    private void print_card(ArrayList<Card> deck) {
+    private void printCard(ArrayList<Card> deck) {
     	search.clear();
     	int deckSize = deck.size();
         int index=-1;
@@ -145,14 +149,14 @@ public class GameUI extends MenuUI {
         	index = sortByType(deck);
         }
         if (index == -5) {
-        	print_deck(search);
+        	printDeck(search);
         } else if (index == -2) {
         	return;
         } else {
             index--;
             print("You want to see the card "+deck.get(index));
             Card c = deck.get(index);
-            HashMap<String, String> get_map_card = c.get_map_card();
+            HashMap<String, String> get_map_card = c.getMapCard();
             PrintCardUI.print_card(get_map_card);
             menu_card(index, deck);
         }
@@ -213,17 +217,17 @@ public class GameUI extends MenuUI {
                 }
                 break;
             case 2:
-                menu_card_modification(deck.get(index));
+                menuCardModification(deck.get(index));
                 break;
             default:
-            	print_deck(deck);
+            	printDeck(deck);
                 break;
         }
 
     }
 
-    private void menu_card_modification(Card c) {
-        HashMap c_map = c.get_map_card();
+    private void menuCardModification(Card c) {
+        HashMap c_map = c.getMapCard();
         HashMap<Integer, String> c_arguments = new HashMap();
         Set<String> c_keys = c_map.keySet();
         Iterator<String> it = c_keys.iterator();
@@ -244,13 +248,13 @@ public class GameUI extends MenuUI {
             }
         }
         
-        int choice =TestsUI.test_int(-1, 1, i);
+        int choice =TestsUI.testInt(-1, 1, i);
         
-        c.set_argument(c_arguments.get(choice));
+        c.setArgument(c_arguments.get(choice));
 
     }
 
-    private String ask_player_name() {
+    private String askPlayerName() {
         String player_name="";
         print("What's your name ? (max 20 char)");
         do {
@@ -261,4 +265,5 @@ public class GameUI extends MenuUI {
         } while (player_name == "Q");
         return player_name;
     }
+
 }

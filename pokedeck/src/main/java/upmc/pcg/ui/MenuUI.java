@@ -1,5 +1,7 @@
 package upmc.pcg.ui;
+import java.util.ArrayList;
 import upmc.pcg.game.Game;
+import upmc.pcg.game.Player;
 
 public class MenuUI implements TestsUI  {
 	protected final Game game = new Game();
@@ -24,10 +26,11 @@ public class MenuUI implements TestsUI  {
         print( "2- See your deck" );
        if(game.getPlayersNumber()>1){
            print( "3- Change player" );
-           maxChoice=3;
+           print("4- Start a fight !!");
+           maxChoice=4;
        }
         print( "0- Leave the game" );
-        int choice = TestsUI.test_int( -1, 0, maxChoice );
+        int choice = TestsUI.testInt( -1, 0, maxChoice );
         return choice;
     }
     
@@ -47,7 +50,7 @@ public class MenuUI implements TestsUI  {
         print( "1- Remove the card" );
         print( "2- Modify the card" );
         print( "3- Return to the deck" );
-        choice = TestsUI.test_int( -1, 1, 3 );
+        choice = TestsUI.testInt( -1, 1, 3 );
         return choice;
     }
     
@@ -87,7 +90,7 @@ public class MenuUI implements TestsUI  {
     	print( "1 : Energy" );
     	print( "2 : Pokemon" );
     	print( "3 : Trainer" );
-    	int choice = TestsUI.test_int( -1, 1, 3 );
+    	int choice = TestsUI.testInt( -1, 1, 3 );
     	return choice;
     }   
     
@@ -95,8 +98,9 @@ public class MenuUI implements TestsUI  {
         print("Which stater deck will you choose ?");
         print("1- Fire and fighting");
         print("2- Water and grass");
-        print("3- Finally, none. I want to create my own deck.");
-        int choice = TestsUI.test_int( -1, 1, 3 );
+        print("3- Finally, none. I want to create my deck from scratch.");
+        int choice = TestsUI.testInt( -1, 1, 3 );
     	return choice;
     }
+    
 }

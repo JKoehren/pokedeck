@@ -14,7 +14,7 @@ public class CreationCardUI implements TestsUI {
         int choice;
         print( "Wich kind of energy has your " + type + "?" );
         print( print_hashMap( energy_type ) );
-        choice = TestsUI.test_int( -1, 1, energy_type.size() );
+        choice = TestsUI.testInt( -1, 1, energy_type.size() );
         return ( String ) energy_type.get( choice );
     }
     
@@ -26,73 +26,73 @@ public class CreationCardUI implements TestsUI {
         return name;
     }
     
-    public static String ask_attack_name() {
+    public static String askAttackName() {
     	
         print( "Add a basic attack to your pokemon. First, what is the name of your attack? (max 20 char)" );
         String name = TestsUI.test_string( 20 );
         return name;
     }
     
-    public static int ask_attack_strenght() {
+    public static int askAttackStrenght() {
     	
         print( "How strong is your attack? (from 10 to 70 HP)" );
-        int strenght = TestsUI.test_int( -1, 9, 71 );
+        int strenght = TestsUI.testInt( -1, 9, 71 );
         return strenght;
     }
     
-    public static ArrayList<String> ask_attack_energy(HashMap<Integer,String> energy_type) {
+    public static ArrayList<String> askAttackEnergy(HashMap<Integer,String> energy_type) {
     	
         ArrayList<String> energy_needed = new ArrayList<>();
         print( "How many ENERGY cards will you need to have? (From 1 to 5)" );
-        int number = TestsUI.test_int( -1, 0, 6 );
+        int number = TestsUI.testInt( -1, 0, 6 );
         
         for( int i = 1 ; i <= number ; i++ ) {
         	
             print( "Card " + i + ": wich energy?" );
             print( print_hashMap( energy_type ) );
-            energy_needed.add( ( String ) energy_type.get( TestsUI.test_int( -1,1,energy_type.size() ) ) );
+            energy_needed.add( ( String ) energy_type.get( TestsUI.testInt( -1,1,energy_type.size() ) ) );
         }
 
         return energy_needed;
     }
     
-    public static int ask_hp() {
+    public static int askHP() {
     	
         print( "How many HP does it have? (max 200)" );
-        int hp = TestsUI.test_int( -1, 0, 200 );
+        int hp = TestsUI.testInt( -1, 0, 200 );
         return hp;
     }
     
-    public static String ask_weakness( HashMap<Integer,String> energy_type ) {
+    public static String askWeakness( HashMap<Integer,String> energy_type ) {
         
     	int choice;
         print( "What is your pokemon's weakness?" );
         print( print_hashMap( energy_type ) );
-        choice = TestsUI.test_int( -1, 1, energy_type.size() );
+        choice = TestsUI.testInt( -1, 1, energy_type.size() );
         return ( String ) energy_type.get( choice );
     }
     
-    public static String ask_resistance( HashMap<Integer,String> energy_type ) {
+    public static String askResistance( HashMap<Integer,String> energy_type ) {
     	
         int choice;
         print( "To wich energy does he resist well?" );
         print( print_hashMap( energy_type ) );
-        choice = TestsUI.test_int( -1, 1, energy_type.size() );
+        choice = TestsUI.testInt( -1, 1, energy_type.size() );
          
         return ( String ) energy_type.get( choice );
     }
     
-	public static HashMap ask_retreat( HashMap<Integer, String> energy_type ) {
+	public static HashMap askRetreat( HashMap<Integer, String> energy_type ) {
 		
         String energy;
         int number;
         HashMap retreat = new HashMap();
         print( "Wich energy will you have to spend to retreat?" );
         print( print_hashMap( energy_type ) );
-        energy = ( String ) energy_type.get( TestsUI.test_int( -1, 1, energy_type.size() ) );
+        energy = ( String ) energy_type.get( TestsUI.testInt( -1, 1, energy_type.size() ) );
         retreat.put( "energy", energy );
         print( "How much " + energy + " ENERGY card will retreat cost? (10 max)" );
-        number = TestsUI.test_int( -1, 0, 10 );
+        number = TestsUI.testInt( -1, 0, 10 );
         retreat.put( "number", number );
         return retreat;
     }
@@ -115,7 +115,7 @@ public class CreationCardUI implements TestsUI {
         System.out.println( str );
     }
 
-    public static boolean ask_if_add_attack() {
+    public static boolean askIfAddAttack() {
     	
         char add; // Wordplay !
         boolean rhapsodie = true; //Other pun 
@@ -130,7 +130,7 @@ public class CreationCardUI implements TestsUI {
         return rhapsodie;
     }
 
-    public static String ask_description( String type ) {
+    public static String askDescription( String type ) {
     	
         String description = "";
         print( "Add a description to your " + type + " (Max : 200 char)" );

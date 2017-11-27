@@ -19,7 +19,7 @@ public class Game implements Serializer {
 			
 			if (! Serializer.uploadDeck( user )) {
 				
-				String starterDeck = GameUI.ask_if_starter_deck( user );
+				String starterDeck = GameUI.askIfStarterDeck( user );
                 if(!starterDeck.equals("")) Serializer.uploadDeck( user, starterDeck );
 			}
 			
@@ -30,7 +30,10 @@ public class Game implements Serializer {
         public int getPlayersNumber(){
             return players.size();
         }
-	public Player get_player() {
+        public ArrayList getAllPlayers(){
+            return players;
+        }
+	public Player getPlayer() {
 		
 		Player p = null;
 		
@@ -48,9 +51,9 @@ public class Game implements Serializer {
 		}
 	}
 	
-	public Player next_player() {
+	public Player nextPlayer() {
 		
-		Player current = get_player();
+		Player current = getPlayer();
  
 		int next = this.players.indexOf( current ) + 1;
 		
@@ -64,14 +67,19 @@ public class Game implements Serializer {
 		return nextPlayer;
 	}
 
-	public ArrayList<Card> get_actualDeck() {
-		return this.get_player().get_deck().get_cards();
+	public ArrayList<Card> getActualDeck() {
+		return this.getPlayer().get_deck().get_cards();
 	}
 
-	public void set_decks() {
+	public void setDecks() {
 		
-		for( Player p : players ){
+		for( Player p : this.players ){
 			Serializer.saveDeck( p );
 		}
 	}
+
+        public void startMatch() {
+            Match match=new Match(this);   
+        }
+
 }

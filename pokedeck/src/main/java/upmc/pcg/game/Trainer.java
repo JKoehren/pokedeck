@@ -11,8 +11,8 @@ public class Trainer extends Card {
 	public void settings() {
 		
         this.map_card.put( "card_type", this.type = "TRAINER" );
-        this.name = set_name();
-        this.description = set_description();
+        this.name = setName();
+        this.description = setDescription();
         report();
 	}
 	
@@ -20,14 +20,14 @@ public class Trainer extends Card {
         return "TRAINER : " + this.name;
     }
     
-    public void set_argument( String argument ) {
+    public void setArgument( String argument ) {
     	
         switch ( argument ) {
             case "name" :
-                this.name = set_name();
+                this.name = setName();
                 break;
             case "description" :
-                this.description = set_description();
+                this.description = setDescription();
                 break; 
         }
     }

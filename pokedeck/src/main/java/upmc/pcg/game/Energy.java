@@ -11,7 +11,7 @@ public class Energy extends Card {
     public void settings() {
     	
         this.map_card.put( "card_type", this.type = "ENERGY" );
-        this.energy_type = set_energy();
+        this.energy_type = setEnergy();
         report();
     }
     
@@ -20,11 +20,11 @@ public class Energy extends Card {
         return "ENERGY : " + this.energy_type;
     }
     
-    public void set_argument( String argument ) {
+    public void setArgument( String argument ) {
     	
         switch ( argument ) {
             case "energy" :
-                this.energy_type = set_energy();
+                this.energy_type = setEnergy();
                 break;
         }
     }
