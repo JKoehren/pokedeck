@@ -26,7 +26,9 @@ public class MenuUI implements TestsUI  {
         print( "2- See your deck" );
        if(game.getPlayersNumber()>1){
            print( "3- Change player" );
-           print("4- Start a fight !!");
+           if(game.getPlayer().getDeck().getCards().size()>=30){
+               print("4- Start a fight !!");
+           }
            maxChoice=4;
        }
         print( "0- Leave the game" );

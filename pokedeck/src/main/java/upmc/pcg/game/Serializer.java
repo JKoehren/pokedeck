@@ -17,7 +17,7 @@ public interface Serializer {
 		
 		dataExist();
 		String uri = "data/" + p.toString() + ".json";
-		Deck toSave = p.get_deck();
+		Deck toSave = p.getDeck();
 		
 		try ( Writer writer = new FileWriter( uri ) ) {
 			
@@ -52,10 +52,10 @@ public interface Serializer {
 			
 			Gson gson = new GsonBuilder().create();
 			Deck toUp = gson.fromJson( reader, Deck.class );
-			ArrayList<Card> cards = toUp.get_cards();
+			ArrayList<Card> cards = toUp.getCards();
 			cards = changeClassCard(cards);
-			toUp.set_cards(cards);
-			p.set_deck( toUp );
+			toUp.setCards(cards);
+			p.setDeck( toUp );
 			System.out.println(  p + "'s deck is loaded!" );
 			return true;
 			

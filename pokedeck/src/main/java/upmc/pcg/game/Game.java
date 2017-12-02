@@ -39,7 +39,7 @@ public class Game implements Serializer {
 		
 		for( Player cursor : this.players ) {
 			
-			if ( cursor.get_isPlaying() ) {
+			if ( cursor.getIsPlaying() ) {
 				p=cursor;
 			}
 		}
@@ -68,7 +68,7 @@ public class Game implements Serializer {
 	}
 
 	public ArrayList<Card> getActualDeck() {
-		return this.getPlayer().get_deck().get_cards();
+		return this.getPlayer().getDeck().getCards();
 	}
 
 	public void setDecks() {

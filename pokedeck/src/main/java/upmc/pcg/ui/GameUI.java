@@ -9,10 +9,18 @@ public class GameUI extends MenuUI {
 
     private boolean goOn = true;
     
+    private void fastMatch(){
+        ArrayList<String> names = new ArrayList();
+        names.add("Joueur Eau");
+        names.add("Joueur Feu");
+        game.initialize(names);
+        game.startMatch();
+    }
     private ArrayList<Card> search = new ArrayList<>();
   
     
     public void start() {
+        fastMatch();
         printWelcomeMsg();
         
         ArrayList<String> names = askPlayersNames();
@@ -121,7 +129,7 @@ public class GameUI extends MenuUI {
         print("Bye " + game.getPlayer() + "! See you soon :D");
     }
 
-	private void printDeck(ArrayList<Card> deck) {
+    private void printDeck(ArrayList<Card> deck) {
         
         print("------------------------------YOUR DECK !-------------------------------");
         if(deck.size() == 0){

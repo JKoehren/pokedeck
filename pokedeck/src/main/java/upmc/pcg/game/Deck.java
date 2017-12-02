@@ -1,6 +1,7 @@
 package upmc.pcg.game;
 
 import java.util.ArrayList;
+import static java.util.Collections.shuffle;
 
 /**
  * @author Laura
@@ -10,7 +11,7 @@ public class Deck {
 	
     protected ArrayList<Card> cards = new ArrayList<Card>();
    
-    public void create_card( String card_type ) {
+    public void createCard( String card_type ) {
     	
         Card c=null;
         
@@ -29,12 +30,20 @@ public class Deck {
         
         cards.add( c );
     }
-    
-    public ArrayList<Card> get_cards() {
+    public void shuffleCards(){
+        shuffle(this.cards);
+    }
+    public ArrayList<Card> getCards() {
         return this.cards;
     }
-    
-    public void set_cards(ArrayList<Card> setCards) {
+    public Card getOneCard(int index) {
+        return this.cards.get(index);
+    }
+    public void removeCard(int index){
+        this.cards.remove(index);
+    }
+
+    public void setCards(ArrayList<Card> setCards) {
     	this.cards = setCards;
     }
 }
