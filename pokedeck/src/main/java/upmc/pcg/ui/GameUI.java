@@ -20,7 +20,7 @@ public class GameUI extends MenuUI {
   
     
     public void start() {
-        fastMatch();
+        //fastMatch();
         printWelcomeMsg();
         
         ArrayList<String> names = askPlayersNames();
